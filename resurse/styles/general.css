@@ -1,0 +1,84 @@
+body{
+    /* 
+        light-pink: #FF9F9C
+        light-red: #E65447
+        red: #FA2100
+        orange-red: #E3330B
+        orange: #F9501C
+    */
+
+    --background-color: #FADBC0;
+    --main-color: #FA1D00;
+    --text-color: #330929;
+    --border-color: #E6B6A3;
+    --highlight-color: #EBA7B3;
+
+    --page-padding: 30px;
+    --section-padding: 15px;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+h2{
+    font-size: 2rem;
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    padding-left: var(--page-padding);
+    padding-right: var(--page-padding);
+}
+
+#page-grid > *{
+    border: 3px solid var(--border-color);
+    padding: var(--section-padding);
+}
+
+#page-grid{
+    display: grid;
+    grid-template-columns: repeat(3, fr);
+    grid-template-areas: 
+    "z-intro z-intro z-intro"
+    "z-promo z-team-filter-intro z-game-filter-intro"
+    "z-team-filter z-iframe z-iframe"
+    "z-game-filter z-iframe z-iframe"
+    "z-authenticity z-authenticity z-authenticity";
+    gap: 20px 10px;
+}
+
+#intro{
+    grid-area: z-intro;
+}
+
+#table_zona2{
+    grid-area: z-iframe;
+}
+
+#event_calendar{
+    grid-area: z-team-filter;
+}
+
+#announcements{
+    grid-area: z-game-filter;
+}
+
+#online_users{
+    grid-area: z-promo;
+}
+
+#user_data{
+    grid-area: z-team-filter-intro;
+}
+
+
+#general_info{
+    grid-area: z-game-filter-intro;
+}
+
+#iframe{
+    grid-area: z-authenticity;
+}
