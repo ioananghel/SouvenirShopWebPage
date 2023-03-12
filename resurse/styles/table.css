@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    font-size: 1.2em;
+}
+  
+table th, table td {
+    padding: 0.5em;
+    text-align: center;
+}
+  
+table th {
+    background-color: var(--highlight-color);
+}
+  
+table td {
+    border: 2px solid var(--border-color);
+}
+  
+table tbody tr:nth-child(even) {
+    background-color: var(--highlight-color);
+}
+  
+table tbody tr:nth-child(odd) {
+    background-color: var(--degrade);
+}
+  
+table tbody tr:hover {
+    background-color: var(--background-color);
+    transition: background-color 0.5s ease-out;
+}
+  
+@media (max-width: 768px) {
+    table td, table th {
+      padding: 0.3em;
+    }
+}
+  
+.table-container {
+    overflow-x: scroll;
+    max-width: 100%;
+}
+  
+#table-caption{
+    font-size: 50px;
+}

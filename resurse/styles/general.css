@@ -83,3 +83,26 @@ body{
 #nesting{
     grid-area: z-authenticity;
 }
+
+#page-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+  }
+  
+@media (min-width: 1000px){
+    #page-grid{
+        grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+    }
+}
+
+@media (min-width: 750px){
+    #page-grid{
+        grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+    }
+}
+
+@media (min-width: 500px){
+    #page-grid{
+        grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+    }
+}

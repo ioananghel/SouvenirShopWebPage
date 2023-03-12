@@ -22,6 +22,7 @@ nav{
 ul.menu{
     display: flex;
     flex-direction: row;
+    align-items: center;
     padding: 0;
     margin: 0;
 }
@@ -35,6 +36,7 @@ ul.menu li{
     overflow: hidden;
 
     text-align: center;
+    align-items: center;
 
     /* border: var(--gr); */
     padding: 0;
@@ -72,7 +74,8 @@ ul.menu  li:hover ul{
 }
 
 ul.menu li a, ul.menu li div{
-    line-height: calc(var(--menu-height) - 2*var(--menu-height));
+    /* line-height: calc(var(--menu-height) - 2*var(--menu-height)); */
+    line-height: var(--menu-height);
     display: block;
     /* block va fi doar pt a */
 
@@ -83,3 +86,5 @@ ul.menu li a, ul.menu li div{
     text-decoration: none;
     font-weight: bold;
 }
+
+  

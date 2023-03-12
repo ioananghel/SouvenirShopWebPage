@@ -8,7 +8,7 @@ body{
     align-items: flex-start;
     position: sticky;
 
-    background-color: var(--button-color);
+    /* background-color: var(--button-color); */
 }
 /* 
 div.iframe-tabs > *{
@@ -26,6 +26,7 @@ div.iframe-tabs > *{
     /* flex-direction: row; */
     width: 200px;
     /* height: var(--menu-height); */
+    border-radius: 0 15px 15px 0;
     background-color: var(--button-color);
     overflow: hidden;
 
