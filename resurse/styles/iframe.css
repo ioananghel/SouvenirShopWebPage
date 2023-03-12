@@ -1,0 +1,54 @@
+body{
+    --button-color: var(--highlight-color);
+}
+
+.iframe{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    position: sticky;
+
+    background-color: var(--button-color);
+}
+/* 
+div.iframe-tabs > *{
+    display: inline-block;
+    border: 5px solid;
+} */
+
+.iframe-tabs{
+    display: flex;
+    flex-direction: column;
+}
+
+.iframe-tab{
+    display: inline-block; 
+    /* flex-direction: row; */
+    width: 200px;
+    /* height: var(--menu-height); */
+    background-color: var(--button-color);
+    overflow: hidden;
+
+    text-align: center;
+
+    /* border: var(--gr); */
+    padding: 0;
+    margin: 0;
+
+    border: 1px solid var(--border-color);
+
+    box-sizing: border-box;
+
+    /* list-style-type: none; */
+
+    transition: all 0.5s linear;
+}
+
+.iframe-tab:hover{
+    background-color: white;
+}
+
+#ifr-paragraph{
+    background-color: var(--background-color);
+    /* background-color: white; */
+}

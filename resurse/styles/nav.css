@@ -1,0 +1,85 @@
+body{
+    --menu-height: 30px;
+    --button-width: 200px;
+
+    --menu-color: var(--main-color);
+}
+
+nav{
+    padding: 0;
+    margin: 0;
+
+    width: calc(100vw - 25px);
+    /* aici am scazut 25 px pentru a nu mai avea scroll orizontal */
+    background-color: var(--menu-color);
+    height: var(--menu-height);
+
+    position: sticky;
+    top: 0;
+    margin-left: calc(-1 * var(--page-padding));
+}
+
+ul.menu{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    margin: 0;
+}
+
+ul.menu li{
+    display: inline-block; 
+    /* flex-direction: row; */
+    width: var(--button-width);
+    height: var(--menu-height);
+    background-color: var(--menu-color);
+    overflow: hidden;
+
+    text-align: center;
+
+    /* border: var(--gr); */
+    padding: 0;
+    margin: 0;
+
+    border: 1px solid var(--border-color);
+
+    box-sizing: border-box;
+
+    /* list-style-type: none; */
+
+    transition: all 0.5s linear;
+}
+
+ul.menu  li:hover{
+    overflow: visible;
+    background-color: var(--highlight-color);
+}
+
+ul.menu ul{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    opacity: 0;
+    transform: scale(0, 0);
+    transform-origin: center top;
+    transition: all 0.5s linear;
+}
+
+
+ul.menu  li:hover ul{
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+ul.menu li a, ul.menu li div{
+    line-height: calc(var(--menu-height) - 2*var(--menu-height));
+    display: block;
+    /* block va fi doar pt a */
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}

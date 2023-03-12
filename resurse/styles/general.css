@@ -12,6 +12,7 @@ body{
     --text-color: #330929;
     --border-color: #E6B6A3;
     --highlight-color: #EBA7B3;
+    --degrade: #d8677c;
 
     --page-padding: 30px;
     --section-padding: 15px;
@@ -79,6 +80,6 @@ body{
     grid-area: z-game-filter-intro;
 }
 
-#iframe{
+#nesting{
     grid-area: z-authenticity;
 }
