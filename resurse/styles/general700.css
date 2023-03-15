@@ -1,0 +1,20 @@
+html{
+    font-size: 12px;
+}
+
+body{
+    transition: none;
+}
+
+#nesting{
+    display: none;
+}
+
+#page-grid{
+    grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
+}
+
+#table{
+    border-spacing: 0;
+    width: 900px;
+}

@@ -11,13 +11,15 @@
     bottom: 20px;
     right: 20px;
     transition: all 0.3s ease;
-    background-color: transparent;
+    /* background-color: transparent; */
+    opacity: 0.5;
   }
   
   #top-button:hover {
     background-color: transparent;
+    opacity: 1;
     background: radial-gradient(var(--highlight-color), var(--degrade), var(--main-color));
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
   }
   
   #top-button:hover #go-to-top {

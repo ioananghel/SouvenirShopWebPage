@@ -1,3 +1,8 @@
+html{
+    font-size: 18px;
+    transition: font-size 0.5s linear;
+}
+
 body{
     /* 
         light-pink: #FF9F9C
@@ -32,6 +37,7 @@ body{
 
     padding-left: var(--page-padding);
     padding-right: var(--page-padding);
+    font-size: var(--font-size);
 }
 
 #page-grid > *{
@@ -41,7 +47,7 @@ body{
 
 #page-grid{
     display: grid;
-    grid-template-columns: repeat(3, fr);
+    grid-template-columns: repeat(3, 1ssfr);
     grid-template-areas: 
     "z-intro z-intro z-intro"
     "z-promo z-team-filter-intro z-game-filter-intro"
@@ -84,25 +90,7 @@ body{
     grid-area: z-authenticity;
 }
 
-#page-grid {
+/* #page-grid {
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-  }
-  
-@media (min-width: 1000px){
-    #page-grid{
-        grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
-    }
-}
-
-@media (min-width: 750px){
-    #page-grid{
-        grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
-    }
-}
-
-@media (min-width: 500px){
-    #page-grid{
-        grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
-    }
-}
+  } */

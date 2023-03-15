@@ -1,0 +1,17 @@
+html{
+    font-size: 15px;
+}
+
+#page-grid{
+    display: block;
+    /* grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) ); */
+}
+
+#iframe-tab{
+    width: 50px;
+}
+
+#table{
+    border-spacing: 0;
+    width: 1200px;
+}
