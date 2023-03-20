@@ -2,9 +2,14 @@ html{
     font-size: 15px;
 }
 
+body{
+    --page-padding: 20px;
+}
+
 #page-grid{
     display: block;
     /* grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) ); */
+    gap: 12px 5px;
 }
 
 #iframe-tab{

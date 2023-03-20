@@ -3,6 +3,7 @@ html{
 }
 
 body{
+    --page-padding: 5px;
     transition: none;
 }
 
@@ -11,6 +12,7 @@ body{
 }
 
 #page-grid{
+    gap: 5px 2px;
     grid-template-columns: repeat( auto-fit, minmax(500px, 1fr) );
 }
 

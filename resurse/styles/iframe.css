@@ -59,3 +59,9 @@ div.iframe-tabs > *{
 #iframe-box{
     border: 5px solid var(--button-color);
 }
+
+#iframe-video{
+    width: 100%;
+    max-width: 100%;
+    min-width: 100px;
+}

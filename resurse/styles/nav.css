@@ -50,11 +50,31 @@ ul.menu li{
 
     transition: all 0.5s linear;
 }
+/* 
+ul.menu li:hover::before ul{
+    content: attr(data-text);
+    position: absolute;
+    top: -4px;
+    color: #ffffff;
+    text-shadow: 0 0 5px #000000;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+} */
 
 ul.menu  li:hover{
     overflow: visible;
     background-color: var(--highlight-color);
 }
+/* 
+ul.menu li:hover::after ul{
+    content: attr(data-text);
+    position: absolute;
+    top: -4px;
+    color: #000000;
+    text-shadow: 0 0 5px #000000;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+} */
 
 ul.menu ul{
     padding: 0;
