@@ -1,0 +1,53 @@
+@media print {
+    #css-print {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%;
+        border: 2px double black;
+        padding: 10px;
+    }
+    
+    img, video, iframe, audio, object, embed, picture {
+        display: none;
+    }
+    
+    a[href="#"] {
+        display: none;
+    }
+
+    #page-grid{
+        display: block;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    h1 {
+        text-align: center;
+    }
+    
+    nav {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul{
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 20px;
+    }
+    #menu{
+        display: block;
+    }
+    
+    nav {
+        page-break-after: always;
+    }
+}

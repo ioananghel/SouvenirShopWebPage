@@ -9,6 +9,7 @@
         <meta name="description" content="Proiect Web - Magazin de Suveniruri Formula 1"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
         <meta name="author" content="Ioan Anghel">  <!-- autorul/autoarea paginii-->     
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="./resurse/imagini/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="./resurse/imagini/favicon-16x16.png">
@@ -19,9 +20,11 @@
         <link rel="stylesheet" href="resurse/styles/general1000.css" type="text/css" media="screen and (max-width:1000px)"/>
         <link rel="stylesheet" href="resurse/styles/general700.css" type="text/css" media="screen and (max-width:700px)"/>
         <link rel="stylesheet" href="./resurse/styles/nav.css" type="text/css">
+        <link rel="stylesheet" href="./resurse/styles/nav700.css" type="text/css" media="screen and (max-width:700px)">
         <link rel="stylesheet" href="./resurse/styles/iframe.css" type="text/css">
         <link rel="stylesheet" href="./resurse/styles/top_button.css" type="text/css">
         <link rel="stylesheet" href="./resurse/styles/table.css" type="text/css"> 
+        <link rel="stylesheet" href="./resurse/styles/print.css" type="text/css"> 
 
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="./resurse/imagini/browserconfig.xml">
@@ -31,15 +34,25 @@
     <body>
 
         <header>
+            <div id="css-print">
+                <p>
+                    This is a school project!
+                </p>
+            </div>
             <h1>Formula 1 Souvenir Shop</h1>
 
             <nav>
+                <input id="menu-input" type="checkbox" value="1">
+                <label id="drop-menu" for="menu-input">
+                    <a href="#"><i class="fa-solid fa-bars" id="hidden-pic"></i></a>
+                </label>
+                
                 <ul class="menu">
+                    <!-- <li id="hidden">
+                        <a href="#"><i class="fa-solid fa-bars" id="hidden-pic"></i></a>
+                    </li> -->
                     <li>
-                        <i class="fa-solid fa-flag-checkered"></i>
-                    </li>
-                    <li>
-                        <a href="#">Home</a>
+                        <a href="#"><i class="fa-solid fa-flag-checkered"></i>Home</a>
                         <ul>
                             <li>
                                 <a href="#page-grid">General Presentation</a>

@@ -1,0 +1,67 @@
+body{
+    --menu-height: 60px;
+    --button-width: 100%;
+
+    --menu-color: var(--main-color);
+}
+
+#drop-menu{
+    display: block;
+    margin: 0;
+    width: auto;
+    padding-left: 10px;
+    /* text-align: center;
+    align-items: center; */
+}
+
+#drop-menu>a{
+    height: var(--menu-height);
+    width: auto;
+    display: block;
+    margin: 0;
+}
+
+ul.menu{
+    display: none;
+}
+
+#menu-input:checked+ul.menu{
+    display: block;
+    animation-name: menu_animation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transform-origin: center top;
+}
+
+/* #menu-input:hover+ul.menu{
+    display: block;
+    animation-name: menu_animation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    transform-origin: center top;
+} */
+
+#hidden-pic{
+    font-size: var(--menu-height);
+    width: auto;
+    /* color: var(--text-color); */
+}
+
+@keyframes menu_animation{
+    0%{
+        opacity:0;
+        transform: scale(0.5, 0);
+    }
+    50%{
+        transform: scale(0.5, 1);
+    }
+    100%{
+        
+        opacity:1;
+        transform: scale(1, 1);
+    }
+}

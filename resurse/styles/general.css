@@ -125,3 +125,7 @@ footer{
     max-width: 100%;
     min-width: 320px;
   }
+
+#css-print{
+    display: none;
+}

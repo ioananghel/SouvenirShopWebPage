@@ -1,5 +1,5 @@
 body{
-    --menu-height: 30px;
+    --menu-height: 60px;
     --button-width: 200px;
 
     --menu-color: var(--main-color);
@@ -107,4 +107,6 @@ ul.menu li a, ul.menu li div{
     font-weight: bold;
 }
 
-  
+#drop-menu, #menu-input{
+    display: none;
+}
