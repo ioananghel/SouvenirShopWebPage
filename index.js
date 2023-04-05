@@ -1,5 +1,7 @@
 const express = require("express");
 const fs=require("fs");
+const path=require('path');
+const sharp = require("sharp")
 
 obGlobal = {
     obErori: null,
@@ -9,9 +11,27 @@ obGlobal = {
 app= express();
 console.log("Folder proiect", __dirname);
 
+vectorFoldere=["temp", "temp1"]
+for (let folder of vectorFoldere){
+    //let caleFolder=__dirname+"/"+folder;
+    let caleFolder=path.join(__dirname, folder)
+    if (! fs.existsSync(caleFolder)){
+        fs.mkdirSync(caleFolder);
+    }
+
+}
+
 app.set("view engine", "ejs")
 
 app.use("/resurse", express.static(__dirname+"/resurse"))
+
+app.use(/^\/resurse(\/[a-zA-Z0-9]*)*$/, function(req,res){
+    randeazaEroare(res,403);
+});
+
+app.get("/favicon.ico", function(req,res){
+    res.sendFile(__dirname+"/resurse/imagini/favicon.ico");
+})
 
 app.get("/ceva", function(req, res){
     console.log("cale: ", req.url)
@@ -20,6 +40,10 @@ app.get("/ceva", function(req, res){
 
 app.get(["/index", "/home", "/"], function(req, res){
     res.render("./pages/index", {ip: req.ip, a:10, b:20});
+})
+
+app.get("/*.ejs",function(req, res){
+    afisareEroare(res,400);
 })
 
 app.get(["/despre"], function(req, res){

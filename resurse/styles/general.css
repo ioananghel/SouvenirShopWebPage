@@ -18,6 +18,9 @@ body{
     --border-color: #E6B6A3;
     --highlight-color: #EBA7B3;
     --degrade: #d8677c;
+    --color-link-visited: #891000;
+    --color-link-external-hover: #e0270f;
+    --color-link-hover: #e0270f;
 
     --page-padding: 30px;
     --section-padding: 15px;
@@ -129,3 +132,44 @@ footer{
 #css-print{
     display: none;
 }
+
+/* video {
+    width: 100%;
+    min-width: 300px;
+    max-width: 800px;
+}
+
+::cue {
+    background-color: #222;
+    color: #fff;
+    text-align: left;
+    vertical-align: bottom;
+} 
+::cue b {
+    font-weight: bold;
+} */
+
+a:visited {
+    color: var(--color-link-visited);
+}
+
+a[href^="http"]::before {
+    content: "⮳";
+    font-size: 150%;
+}
+
+a[href^="http"]:hover::before {
+    color: var(--color-link-external-hover);
+}
+
+a:not([href^="http"]):hover {
+    background-image: radial-gradient(circle, var(--color-link-hover) 0%, var(--color-link-hover) 40%, transparent 80%, transparent 100%);
+    background-position: center;
+    background-size: 0;
+    transition: background-size 0.2s ease-in-out;
+}
+
+a:not([href^="http"]):hover:hover {
+    background-size: 100%;
+}
+  

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Proiect Web - Magazin de Suveniruri Formula 1"><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <meta name="keywords" content="F1, Formula 1, authentic, souvenir, sport, motor-sport"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <title>Formula 1 Souvenir Shop - error</title>
+        <link rel="stylesheet" type="text/css" href="/resurse/styles/error.css"
+        <%- include("../fragments/head.ejs");  %> 
+
+
+    </head>
+    <body>
+        
+    <%- include("../fragments/header.ejs");  %> 
+
+    <main>
+        <div id="err-coloane">
+			<div id="err-imag">
+				<img src="<%- locals.imagine %>" />
+			</div>
+			<section>
+				<h2><%- locals.titlu %></h2>
+				<p><%- locals.text %></p>
+			</section>
+		</div>
+    </main>
+    
+    <%- include("../fragments/footer.ejs");  %> 
+
+
+    </body>
+</html>
