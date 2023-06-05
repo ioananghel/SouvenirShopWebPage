@@ -18,6 +18,11 @@ client.query("select * from lab8_10", function(err, res){
     console.log("rezultat: ", res.rows);
 });
 
+client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+    console.log(err);
+    console.log(rez);
+})
+
 obGlobal = {
     obErori: null,
     obImagini: null,
@@ -114,6 +119,10 @@ app.get("/produse",function(req, res){
     //TO DO se adauaga filtrarea dupa tipul produsului
     //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
 
+    client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rezCategorie){
+        // console.log(err);
+        // console.log(rez);
+
         let conditieWhere = ""
         if(req.query.tip)
             conditieWhere = ` where tip_produs = '${req.query.tip}'`
@@ -125,10 +134,10 @@ app.get("/produse",function(req, res){
                 randeazaEroare(res, 2);
             }
             else
-                res.render("pages/produse", {produse:rez.rows, optiuni:[]});
+                res.render("pages/produse", {produse:rez.rows, optiuni:rezCategorie.rows});
         });
 
-
+    })
 });
 
 
