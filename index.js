@@ -23,13 +23,25 @@ client.query("select * from unnest(enum_range(null::categ_prajitura))",function(
     console.log(rez);
 })
 
+
+
 obGlobal = {
     obErori: null,
     obImagini: null,
     scssFolder: path.join(__dirname, "resurse/scss"),
     cssFolder: path.join(__dirname, "resurse/styles"),
-    folerBackup: path.join(__dirname, "backup")
+    folerBackup: path.join(__dirname, "backup"),
+    optiuniMeniu:[]
 }
+
+client.query("select * from unnest(enum_range(null::tipuri_produse))",function(err, rezTipuri){
+    if(err){
+        console.log(err);
+    }
+    else{
+        obGlobal.optiuniMeniu=rezTipuri.rows;
+    }
+})
 
 app= express();
 console.log("Folder proiect", __dirname);
@@ -46,8 +58,9 @@ for (let folder of vectorFoldere){
 
 function compileScss(scssPath, cssPath){
     if(!cssPath){
-        let vectorPath = scssPath.split("\\"); 
-        let fileName = vectorPath[vectorPath.length - 1];
+        // let vectorPath = scssPath.split("\\"); 
+        // let fileName = vectorPath[vectorPath.length - 1];
+        let fileName = path.basename(scssPath);
         fileName = fileName.split(".")[0];
 
         cssPath = fileName + ".css";
@@ -60,6 +73,11 @@ function compileScss(scssPath, cssPath){
         cssPath = path.join(obGlobal.cssFolder, cssPath)
     }
     // in acest punct, avem cai absolute in cale scss si in styles
+
+    let caleResBackup=path.join(obGlobal.folerBackup, "resurse/styles");
+    if (!fs.existsSync(caleResBackup))
+        fs.mkdirSync(caleResBackup, {recursive:true});
+
     let vectorPath = cssPath.split("\\");
     let cssFileName = vectorPath[vectorPath.length - 1];
 
@@ -94,6 +112,11 @@ app.set("view engine", "ejs")
 
 app.use("/resurse", express.static(__dirname+"/resurse"))
 app.use("/node_modules", express.static(__dirname + "/node_modules"));
+
+app.use("/*", function(req, res, next){
+    res.locals.optiuniMeniu = obGlobal.optiuniMeniu;
+    next();
+})
 
 app.use(/^\/resurse(\/[a-zA-Z0-9]*)*$/, function(req,res){
     randeazaEroare(res,403);
