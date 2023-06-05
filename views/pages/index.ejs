@@ -16,6 +16,7 @@
             <div id="page-grid">
                 <div id="intro">
                     <p>
+                        <!-- <button class="btn btn-primary">ceva</button> -->
                         Introducing our <b>authentic</b> <b>Formula 1</b> <b>Souvenir Shop</b> - the ultimate destination for <b>sport</b> enthusiasts and <b>motor-sport</b> fans alike. 
                         Browse our collection of unique souvenirs and immerse yourself in the world of <a href="https://www.formula1.com/" target="_blank">Formula 1</a>
                         <img id="intro_picture" src="./resurse/imagini/intr_formula1.jpeg" style="float: left; margin-right: 10px" alt="imagine formula1 intro" title="Formula1 2023">
@@ -147,8 +148,34 @@
                 <track src="subtitles-ro.vtt" kind="subtitles" srclang="ro" default>
                 <track src="subtitles-en.vtt" kind="subtitles" srclang="en">
             </video> -->
-              
 
+            <div id="picture-grid">
+                <% for (let imag of locals.imagini) { 
+                    %>
+                       <figure>
+                           <picture>
+                               <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                               <img src="<%- imag.file_path %>" alt="imagine">
+                           </picture>
+                           <figcaption><%- imag.description %></figcaption>
+                       </figure>
+               <% }  %>
+            </div>
+              
+            <div id="galerie2" class="galerie">
+                <div class="grid_2col">
+                    <% for (let imag of locals.imagini) { 
+                        %>
+                        <figure>
+                            <picture>
+                                <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
+                                <img src="<%- imag.file_path %>" alt="imagine">
+                            </picture>
+                            <figcaption><%- imag.description %></figcaption>
+                        </figure>
+                     <% }  %>
+                </div>
+            </div>
 
         </main>
 

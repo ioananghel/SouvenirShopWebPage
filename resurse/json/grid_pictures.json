@@ -1,0 +1,245 @@
+{
+	"picture_path":"resurse/imagini/grid_pics",
+	"images": [
+        {
+            "file_path":"Imola_autumn.jpg",
+            "title":"Imola in Autumn",
+            "description":"Imola in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"Monaco_spring.jpg",
+            "title":"Monaco in Spring",
+            "description":"Monaco in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"Monaco_summer.jpg",
+            "title":"Monaco in Summer",
+            "description":"Monaco in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"abu_dhabi_winter.jpg",
+            "title":"Abu Dhabi in Winter",
+            "description":"Abu Dhabi in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"austria_autumn.jpg",
+            "title":"Austria in Autumn",
+            "description":"Austria in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"austria_spring.jpg",
+            "title":"Austria in Spring",
+            "description":"Austria in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"austria_summer.jpg",
+            "title":"Austria in Summer",
+            "description":"Austria in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"baku_autumn.jpg",
+            "title":"Baku in Autumn",
+            "description":"Baku in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"baku_summer.jpg",
+            "title":"Baku in Summer",
+            "description":"Baku in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"belgium_autumn.jpg",
+            "title":"Belgium in Autumn",
+            "description":"Belgian in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"belgium_spring.jpg",
+            "title":"Belgium in Spring",
+            "description":"Belgian in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"belgium_summer.jpg",
+            "title":"Belgium in Summer",
+            "description":"Belgian in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"britain_spring.jpg",
+            "title":"Britain in Spring",
+            "description":"Britain in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"british_autumn.jpg",
+            "title":"Britain in Autumn",
+            "description":"Britain in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"british_summer.jpg",
+            "title":"Britain in Summer",
+            "description":"Britain in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"british_winter.jpg",
+            "title":"Britain in Winter",
+            "description":"Britain in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"canada_autumn.jpg",
+            "title":"Canada in Autumn",
+            "description":"Canada in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"canada_spring.jpg",
+            "title":"Canada in Spring",
+            "description":"Canada in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"canada_summer.jpg",
+            "title":"Canada in Summer",
+            "description":"Canada in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"dutch_autumn.jpg",
+            "title":"Netherlands in autumn",
+            "description":"Netherlands in autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"dutch_spring.jpg",
+            "title":"Netherlands in Spring",
+            "description":"Netherlands in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"hungary_autumn.jpg",
+            "title":"Hungary in Autumn",
+            "description":"Hungary in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"hungary_spring.jpg",
+            "title":"Hungary in Spring",
+            "description":"Hungary in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"hungary_summer.jpg",
+            "title":"Hungary in Summer",
+            "description":"Hungary in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"imola_spring.jpg",
+            "title":"Imola in Spring",
+            "description":"Imola in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"imola_summer.jpg",
+            "title":"Imola in Summer",
+            "description":"Imola in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"lh_donuts_winter.jpg",
+            "title":"Lewis Hamilton doing donuts",
+            "description":"Lewis Hamilton doing donuts",
+            "season":"winter"
+        },
+        {
+            "file_path":"miami_summer.jpg",
+            "title":"Miami in Summer",
+            "description":"Miami in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"monaco_autumn.jpg",
+            "title":"Monaco in Autumn",
+            "description":"Monaco in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"monza_spring.jpg",
+            "title":"Monza in Spring",
+            "description":"Monza in Spring",
+            "season":"spring"
+        },
+		{
+            "file_path":"qatar_winter.jpg",
+            "title":"Qatar in Winter",
+            "description":"Qatar in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"redbull_winter.jpg",
+            "title":"RedBull in Winter",
+            "description":"RedBull in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"redbull_winter_1.jpg",
+            "title":"RedBull in Winter",
+            "description":"RedBull in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"singapore_winter.jpg",
+            "title":"Singapore in Winter",
+            "description":"Singapore in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"singapore_winter_1.jpg",
+            "title":"Singapore in Winter",
+            "description":"Singapore in Winter",
+            "season":"winter"
+        },
+        {
+            "file_path":"spain_autumn.png",
+            "title":"Spain in Autumn",
+            "description":"Spain in Autumn",
+            "season":"autumn"
+        },
+        {
+            "file_path":"spain_spring.jpg",
+            "title":"Spain in Spting",
+            "description":"Spain in Spring",
+            "season":"spring"
+        },
+        {
+            "file_path":"spain_summer.jpg",
+            "title":"Spain in Summer",
+            "description":"Spain in Summer",
+            "season":"summer"
+        },
+        {
+            "file_path":"vettel_donuts_winter.jpg",
+            "title":"Vettel doing donuts",
+            "description":"Vettel doing donuts",
+            "season":"winter"
+        },
+        {
+            "file_path":"villeneuve_winter.jpg",
+            "title":"Gilles Villeneuve",
+            "description":"Gilles Villeneuve",
+            "season":"winter"
+        }
+	]
+}

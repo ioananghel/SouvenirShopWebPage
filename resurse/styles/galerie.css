@@ -1,0 +1,32 @@
+#galerie-statica{
+    padding-left:var(--padding-intern);
+    padding-right:var(--padding-intern);
+  }
+  
+  #picture-grid {
+   display:grid;
+   grid-template-columns: repeat(3,1fr);
+   grid-row-gap:0.5em;
+   grid-column-gap:0.5em;
+   counter-reset: nrimag 0;
+  }
+  #picture-grid .grid-item:nth-child(3n + 2) {
+    display: none;
+  }
+  #picture-grid img{
+    width: 100%;
+  }
+  #picture-grid figcaption{
+    text-align:center;
+    counter-increment: nrimag 1;
+  }
+  
+  #picture-grid figcaption::before{
+    content: counter(nrimag, lower-roman) ")";
+  }
+  
+  @media screen and (max-width:500px){
+    #picture-grid {
+        display:block;
+    }
+  }
