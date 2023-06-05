@@ -13,12 +13,12 @@ var client= new Client({database:"f1_souvenir_shop",
         port:5432});
 client.connect();
 
-client.query("select * from lab8_10", function(err, res){
+client.query("select * from produse", function(err, res){
     console.log("Eroare: ", err);
     console.log("rezultat: ", res.rows);
 });
 
-client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+client.query("select * from unnest(enum_range(null::categ_produse))",function(err, rez){
     console.log(err);
     console.log(rez);
 })
@@ -142,7 +142,7 @@ app.get("/produse",function(req, res){
     //TO DO se adauaga filtrarea dupa tipul produsului
     //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
 
-    client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rezCategorie){
+    client.query("select * from unnest(enum_range(null::categ_produse))",function(err, rezCategorie){
         // console.log(err);
         // console.log(rez);
 
@@ -150,7 +150,7 @@ app.get("/produse",function(req, res){
         if(req.query.tip)
             conditieWhere = ` where tip_produs = '${req.query.tip}'`
         
-        client.query("select * from prajituri" + conditieWhere , function( err, rez){
+        client.query("select * from produse" + conditieWhere , function( err, rez){
             console.log(300)
             if(err){
                 console.log(err);
