@@ -107,6 +107,50 @@ app.get(["/index", "/home", "/"], function(req, res){
     res.render("./pages/index", {ip: req.ip, a:10, b:20, imagini: obGlobal.obImagini.images});
 })
 
+app.get("/produse",function(req, res){
+
+
+    //TO DO query pentru a selecta toate produsele
+    //TO DO se adauaga filtrarea dupa tipul produsului
+    //TO DO se selecteaza si toate valorile din enum-ul categ_prajitura
+
+        let conditieWhere = ""
+        if(req.query.tip)
+            conditieWhere = ` where tip_produs = '${req.query.tip}'`
+        
+        client.query("select * from prajituri" + conditieWhere , function( err, rez){
+            console.log(300)
+            if(err){
+                console.log(err);
+                randeazaEroare(res, 2);
+            }
+            else
+                res.render("pages/produse", {produse:rez.rows, optiuni:[]});
+        });
+
+
+});
+
+
+app.get("/produs/:id",function(req, res){
+    console.log(req.params);
+   
+    client.query(`select * from prajituri where id=${req.params.id}`, function( err, rezultat){
+        if(err){
+            console.log(err);
+            randeazaEroare(res, 2);
+        }
+        else
+            res.render("pages/produs", {prod:rezultat.rows[0]});
+    });
+});
+
+client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+    console.log(err);
+    console.log(rez);
+})
+
+
 app.get("*/galerie-animata.css",function(req, res){
 
     var sirScss=fs.readFileSync(__dirname+"/resurse/scss_ejs/galerie_animata.scss").toString("utf8");
