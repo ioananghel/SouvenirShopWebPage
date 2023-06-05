@@ -10935,31 +10935,3 @@ a:not([href^=http]):hover {
 a:not([href^=http]):hover:hover {
   background-size: 100%;
 }
-
-label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-input[type=text] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  background-color: var(--border-color);
-}
-
-div {
-  margin-top: 20px;
-}
-
-p {
-  margin: 10px 0;
-}
-
-input[type=radio] {
-  margin-right: 5px;
-}
-
-.tab {
-  margin-left: 40px;
-}

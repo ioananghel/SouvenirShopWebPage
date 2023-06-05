@@ -167,7 +167,7 @@ app.get("/produse",function(req, res){
 app.get("/produs/:id",function(req, res){
     console.log(req.params);
    
-    client.query(`select * from prajituri where id=${req.params.id}`, function( err, rezultat){
+    client.query(`select * from produse where id=${req.params.id}`, function( err, rezultat){
         if(err){
             console.log(err);
             randeazaEroare(res, 2);
@@ -177,7 +177,7 @@ app.get("/produs/:id",function(req, res){
     });
 });
 
-client.query("select * from unnest(enum_range(null::categ_prajitura))",function(err, rez){
+client.query("select * from unnest(enum_range(null::categ_produse))",function(err, rez){
     console.log(err);
     console.log(rez);
 })

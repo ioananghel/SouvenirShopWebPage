@@ -10945,7 +10945,6 @@ input[type=text] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 25px;
-  background-color: var(--border-color);
 }
 
 div {

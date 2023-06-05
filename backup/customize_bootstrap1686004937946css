@@ -10944,8 +10944,7 @@ label {
 input[type=text] {
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 25px;
-  background-color: var(--border-color);
+  border-radius: 15px;
 }
 
 div {
@@ -10958,8 +10957,4 @@ p {
 
 input[type=radio] {
   margin-right: 5px;
-}
-
-.tab {
-  margin-left: 40px;
 }
