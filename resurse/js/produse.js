@@ -7,6 +7,9 @@ window.onload=function() {
         let val_radio3 = document.getElementById("i_rad3");
         let val_dropdown = document.getElementById("inp-categorie").value
         var val_slider = document.getElementById("inp-pret").value
+        var team_list = document.getElementsByClassName("team_check");
+        var driver_list = document.getElementsByClassName("driver_check");
+
         val_slider = Number(val_slider)
         // console.log(val_dropdown)
         // console.log("haida")
@@ -93,6 +96,47 @@ window.onload=function() {
         
                 if(cond1){
                     prod.style.display="block";
+                }
+            }
+        }
+
+        for(let team of team_list){
+            let elem = document.getElementById(team.id);
+            
+            if(elem.checked){
+                for(let prod of produse){
+                    let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
+                    if(team.id == echipa && prod.style.display == "block"){
+                            prod.style.display="block";
+                    }
+                }
+            }
+            else{
+                for(let prod of produse){
+                    let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
+                    if(team.id == echipa && prod.style.display == "block"){
+                            prod.style.display="none";
+                    }
+                }
+            }
+        }
+
+        for(let driver of driver_list){
+            let elem = document.getElementById(driver.id);
+            if(elem.checked){
+                for(let prod of produse){
+                    let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
+                    if(driver.id == sofer && prod.style.display == "block"){
+                            prod.style.display="block";
+                    }
+                }
+            }
+            else{
+                for(let prod of produse){
+                    let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
+                    if(driver.id == sofer && prod.style.display == "block"){
+                            prod.style.display="none";
+                    }
                 }
             }
         }
