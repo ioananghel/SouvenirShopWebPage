@@ -4,12 +4,21 @@
     <head>
         <title>F1 Souvenir Shop</title>
         <meta name="keywords" content="F1, Formula 1, authentic, souvenir, sport, motor-sport"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->  
+
         <%- include("../fragments/head.ejs") %>
+        <link rel="stylesheet" href="./resurse/styles/video.css" type="text/css"> 
+
     </head>
 
     <body>
 
+        <video playsinline autoplay muted loop poster="polina.jpg" id="bgvid">
+            <source src="/resurse/clips/This_is_Formula_One.mp4" type="video/webm">
+            
+        </video>
+
         <%- include("../fragments/header.ejs") %>
+        
 
         <main>
 

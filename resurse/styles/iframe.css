@@ -50,11 +50,11 @@ div.iframe-tabs > *{
     width: 220px;
     transition: width 0.5s linear;
 }
-
+/* 
 #ifr-paragraph{
     background-color: var(--background-color);
-    /* background-color: white; */
-}
+    /* background-color: white; 
+} */
 
 #iframe-box{
     border: 5px solid var(--button-color);
