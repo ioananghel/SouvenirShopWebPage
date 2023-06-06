@@ -14,7 +14,7 @@
 
     <main>
         
-        <label> Name: <input type="text" id="inp-nume"></label>
+        <label> Name: <input type="text" id="inp-nume" placeholder="Enter a product name"></label>
         <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
         <div> Manufacturing year:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
             <p class="tab"><label><input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>Year &lt; 1990
@@ -28,7 +28,7 @@
         </div>
 
 
-        <label> Minimum Price: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+        <label> Maximum Price: <input type="range" id="inp-pret" value="0" min="0"  max="30000"> <span id="infoRange">(0)</span></label>
         <label>Select product category:
             <select id="inp-categorie">
                 <option id="sel-toate" selected value="toate">All</option>
@@ -38,12 +38,13 @@
             </select>
         </label>
         <p>
-        <button id="filtrare">Filter</button> 
+            <div class="btn-group-toggle" data-toggle="buttons">
+                <button id="filtrare" >Filter <i class="bi bi-funnel-fill"></i></button> 
 
-        <button id="resetare">Reset Filter</button><br/>
-        <button id="sortCrescNume">Ascending for price and name</button>
-        <button id="sortDescrescNume">Descending for price and name</button>
-        
+                <button id="resetare">Reset Filter <i class="bi bi-x-circle-fill"></i> </button><br/>
+                <button id="sortCrescNume">Ascending for price and name <i class="bi bi-sort-down-alt"></i></button>
+                <button id="sortDescrescNume">Descending for price and name <i class="bi bi-sort-down"></i></button>
+            </div>
         </p>
         
         <p id="p-suma">Press Alt+"c" for the sum of the products. </p>
@@ -55,17 +56,17 @@
                         <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
                         <div class="info-prod">
                             <p class="pret">Price: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="calorii">Driver: <span class="val-calorii"><%- prod.driver%></span></p>
-                            <p class="gramaj">Team: <span class="val-gramaj"><%- prod.team%></span></p>
+                            <p class="sofer">Driver: <span class="val-sofer"><%- prod.driver%></span></p>
+                            <p class="echipa">Team: <span class="val-echipa"><%- prod.team%></span></p>
 
                         </div>
-                        <p class="categorie">Manufacturing Year: <span class="val-categorie"><%- prod.an_fabricatie%></span></p>
+                        <p class="categorie">Manufacturing Year: <span class="val-an"><%- prod.an_fabricatie%></span></p>
                         <p class="categorie">Category: <span class="val-categorie"><%- prod.categorie%></span></p>
                         <figure>
                             <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
                         </figure>
                         <label class="selecteaza-cos">
-                            Selectează:<br/>
+                            Add to cart <i class="bi bi-cart2"></i><br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
                         </label>
                     </article>
