@@ -6,20 +6,24 @@ window.onload=function() {
         let val_radio2 = document.getElementById("i_rad2");
         let val_radio3 = document.getElementById("i_rad3");
         let val_dropdown = document.getElementById("inp-categorie").value
-        console.log(val_dropdown)
+        var val_slider = document.getElementById("inp-pret").value
+        val_slider = Number(val_slider)
+        // console.log(val_dropdown)
+        // console.log("haida")
+        // console.log(val_slider)
     
-        if(val_nume.trim() == ''){
-            document.getElementById("inp-nume").classList.add('is-invalid');
-            document.getElementById("inp-nume").classList.add('is-invalid');
-        }
-        else{
-            document.getElementById("inp-nume").classList.remove('is-invalid');
-            document.getElementById("inp-nume").classList.remove('is-invalid');
-        }
+        // if(val_nume.trim() == ''){
+        //     document.getElementById("inp-nume").classList.add('is-invalid');
+        //     document.getElementById("inp-nume").classList.add('is-invalid');
+        // }
+        // else{
+        //     document.getElementById("inp-nume").classList.remove('is-invalid');
+        //     document.getElementById("inp-nume").classList.remove('is-invalid');
+        // }
 
         var produse=document.getElementsByClassName("produs");
 
-        if(val_dropdown != "All"){
+        if(val_dropdown != "toate"){
             for(let prod of produse){
                 prod.style.display="none";
                 let categ=prod.getElementsByClassName("val-categorie")[0].innerHTML;
@@ -28,31 +32,53 @@ window.onload=function() {
                 }
             }
         }
+        else{
+            for(let prod of produse){
+                prod.style.display = "block";
+            }
+        }
 
         if(val_radio1.checked){
             for(let prod of produse){
-                prod.style.display="none";
-                let an=prod.getElementsByClassName("val-an")[0].innerHTML;
-                if(an <= 1990){
-                    prod.style.display="block";
+                if(prod.style.display == "block"){
+                    prod.style.display="none";
+                    let an=prod.getElementsByClassName("val-an")[0].innerHTML;
+                    if(an <= 1990){
+                        prod.style.display="block";
+                    }
                 }
             }
         }
         if(val_radio2.checked){
             for(let prod of produse){
-                prod.style.display="none";
-                let an=prod.getElementsByClassName("val-an")[0].innerHTML;
-                if(an >= 1990 && an <= 2010){
-                    prod.style.display="block";
+                if(prod.style.display == "block"){
+                    prod.style.display="none";
+                    let an=prod.getElementsByClassName("val-an")[0].innerHTML;
+                    if(an >= 1990 && an <= 2010){
+                        prod.style.display="block";
+                    }
                 }
             }
         }
         if(val_radio3.checked){
             for(let prod of produse){
+                if(prod.style.display == "block"){
+                    prod.style.display="none";
+                    let an=prod.getElementsByClassName("val-an")[0].innerHTML;
+                    if(an >= 2010){
+                        prod.style.display="block";
+                    }
+                }
+            }
+        }
+        
+        for(let prod of produse){
+            if(prod.style.display == "block"){
                 prod.style.display="none";
-                let an=prod.getElementsByClassName("val-an")[0].innerHTML;
-                if(an >= 2010){
-                    prod.style.display="block";
+                let pret=prod.getElementsByClassName("val-pret")[0].innerHTML;
+                pret = Number(pret);
+                if(pret <= val_slider){
+                   prod.style.display="block";
                 }
             }
         }

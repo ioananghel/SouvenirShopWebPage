@@ -28,7 +28,17 @@
         </div>
 
 
-        <label> Maximum Price: <input type="range" id="inp-pret" value="0" min="0"  max="30000"> <span id="infoRange">(0)</span></label>
+        <!-- <label> Maximum Price: <div class="range-slider">
+            <input type="range" id="inp-pret" value="30000" min="0"  max="30000"> <span id="infoRange">(0)</span>
+            <div class="slider-thumb">
+                <div class="tooltip"></div>
+            </div>
+            <div class="progress"></div>
+        </div> -->
+        <label> Maximum Price: 
+            <input type="range" id="inp-pret" value="30000" min="0"  max="30000" oninput="this.nextElementSibling.value = this.value">
+        <output>30000</output>
+        </label>
         <label>Select product category:
             <select id="inp-categorie">
                 <option id="sel-toate" selected value="toate">All</option>
@@ -54,17 +64,20 @@
                 <% for( let prod of locals.produse) { %>
                     <article class="produs" >
                         <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <div id="img-prod">
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        </div>
                         <div class="info-prod">
                             <p class="pret">Price: <span class="val-pret"><%- prod.pret%></span></p>
                             <p class="sofer">Driver: <span class="val-sofer"><%- prod.driver%></span></p>
                             <p class="echipa">Team: <span class="val-echipa"><%- prod.team%></span></p>
 
-                        </div>
+                        
                         <p class="categorie">Manufacturing Year: <span class="val-an"><%- prod.an_fabricatie%></span></p>
                         <p class="categorie">Category: <span class="val-categorie"><%- prod.categorie%></span></p>
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
+                    </div>
                         <label class="selecteaza-cos">
                             Add to cart <i class="bi bi-cart2"></i><br/>
                             <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
