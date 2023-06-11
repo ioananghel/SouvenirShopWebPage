@@ -30,18 +30,18 @@
         <div class="checkbox-teams" class="col"> Teams:
              <!--how can i make these inputs be displayed on rows and five of them on each one  -->
             <div class="row row-cols-5">
-            <label><input class="team_check col" id="Mercedes" name="gr_team_check" type="checkbox"  checked> Mercedes</label>
-            <label><input class="team_check col" id="Red Bull" name="gr_team_check" type="checkbox"  checked> Red Bull</label>
-            <label><input class="team_check col" id="Ferrari" name="gr_team_check" type="checkbox"  checked> Ferrari</label>
-            <label><input class="team_check col" id="McLaren" name="gr_team_check" type="checkbox"  checked> McLaren</label>
-            <label><input class="team_check col" id="Alpine" name="gr_team_check" type="checkbox"  checked> Alpine</label>
+            <label><input class="team_check col-sm" id="Mercedes" name="gr_team_check" type="checkbox"  checked> Mercedes</label>
+            <label><input class="team_check col-sm" id="Red Bull" name="gr_team_check" type="checkbox"  checked> Red Bull</label>
+            <label><input class="team_check col-sm" id="Ferrari" name="gr_team_check" type="checkbox"  checked> Ferrari</label>
+            <label><input class="team_check col-sm" id="McLaren" name="gr_team_check" type="checkbox"  checked> McLaren</label>
+            <label><input class="team_check col-sm" id="Alpine" name="gr_team_check" type="checkbox"  checked> Alpine</label>
             </div>
             <div class="row row-cols-5">
-            <label><input class="team_check col" id="Alpha Tauri" name="gr_team_check" type="checkbox"  checked> Alpha Tauri</label>
-            <label><input class="team_check col" id="Haas" name="gr_team_check" type="checkbox"  checked> Haas</label>
-            <label><input class="team_check col" id="Williams" name="gr_team_check" type="checkbox"  checked> Williams</label>
-            <label><input class="team_check col" id="Aston Martin" name="gr_team_check" type="checkbox"  checked> Aston Martin</label>
-            <label><input class="team_check col" id="Alfa Romeo" name="gr_team_check" type="checkbox"  checked> Alfa Romeo</label>
+            <label><input class="team_check col-sm" id="Alpha Tauri" name="gr_team_check" type="checkbox"  checked> Alpha Tauri</label>
+            <label><input class="team_check col-sm" id="Haas" name="gr_team_check" type="checkbox"  checked> Haas</label>
+            <label><input class="team_check col-sm" id="Williams" name="gr_team_check" type="checkbox"  checked> Williams</label>
+            <label><input class="team_check col-sm" id="Aston Martin" name="gr_team_check" type="checkbox"  checked> Aston Martin</label>
+            <label><input class="team_check col-sm" id="Alfa Romeo" name="gr_team_check" type="checkbox"  checked> Alfa Romeo</label>
             </div>
         </div>
         </div>
@@ -80,9 +80,13 @@
             </div>
             <div class="progress"></div>
         </div> -->
+        <div class="row">
+        <div class="col">
         <label> Maximum Price: 
             <input type="range" id="inp-pret" value="30000" min="0"  max="30000" oninput="this.nextElementSibling.value = this.value">
         <output>30000</output>
+        </div>
+        <div class="col">
         </label>
         <label>Select product category:
             <select id="inp-categorie">
@@ -92,6 +96,8 @@
                 <% } %>
             </select>
         </label>
+        </div>
+        </div>
         <p>
             <div class="btn-group-toggle" data-toggle="buttons">
                 <button id="filtrare" >Filter <i class="bi bi-funnel-fill"></i></button> 
