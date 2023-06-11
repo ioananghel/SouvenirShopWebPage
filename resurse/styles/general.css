@@ -1,6 +1,8 @@
 html{
     font-size: 18px;
     transition: font-size 0.5s linear;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 body{
@@ -24,10 +26,15 @@ body{
 
     --page-padding: 30px;
     --section-padding: 15px;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: "Times New Roman", Times, serif;
 }
 
 h1{
     font-size: 2.5rem;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
 }
 
 h2{
@@ -174,4 +181,23 @@ a:not([href^="http"]):hover {
 a:not([href^="http"]):hover:hover {
     background-size: 100%;
 }
-  
+
+ul{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+li{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#main_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden !important;
+    align-items: center;
+    padding: 0px !important;
+    margin: 0px !important;
+}

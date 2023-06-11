@@ -10,8 +10,9 @@
    grid-column-gap:0.5em;
    counter-reset: nrimag 0;
   }
-  #picture-grid .grid-item:nth-child(3n + 2) {
-    display: none;
+  #picture-grid .grid-item:nth-child(6n - 1) {
+    /* display: none !important; */
+    opacity: 5%;
   }
   #picture-grid img{
     width: 100%;
@@ -29,4 +30,11 @@
     #picture-grid {
         display:block;
     }
+  }
+
+  #empty-block{
+    height: 400px;
+    width: 400px;
+
+    background-color: red;
   }

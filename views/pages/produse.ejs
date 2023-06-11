@@ -7,6 +7,8 @@
         <title>Cofetăria Dulcelind - home</title>
         <%- include("../fragments/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <script type="text/javascript" src=/resurse/js/pagination.js></script>
+
 
     </head>
     <body>
@@ -30,18 +32,18 @@
         <div class="checkbox-teams" class="col"> Teams:
              <!--how can i make these inputs be displayed on rows and five of them on each one  -->
             <div class="row row-cols-5">
-            <label><input class="team_check col-sm" id="Mercedes" name="gr_team_check" type="checkbox"  checked> Mercedes</label>
-            <label><input class="team_check col-sm" id="Red Bull" name="gr_team_check" type="checkbox"  checked> Red Bull</label>
-            <label><input class="team_check col-sm" id="Ferrari" name="gr_team_check" type="checkbox"  checked> Ferrari</label>
-            <label><input class="team_check col-sm" id="McLaren" name="gr_team_check" type="checkbox"  checked> McLaren</label>
-            <label><input class="team_check col-sm" id="Alpine" name="gr_team_check" type="checkbox"  checked> Alpine</label>
+                <label><input class="team_check col-sm" id="Mercedes" name="gr_team_check" type="checkbox"  checked> Mercedes</label>
+                <label><input class="team_check col-sm" id="Red Bull" name="gr_team_check" type="checkbox"  checked> Red Bull</label>
+                <label><input class="team_check col-sm" id="Ferrari" name="gr_team_check" type="checkbox"  checked> Ferrari</label>
+                <label><input class="team_check col-sm" id="McLaren" name="gr_team_check" type="checkbox"  checked> McLaren</label>
+                <label><input class="team_check col-sm" id="Alpine" name="gr_team_check" type="checkbox"  checked> Alpine</label>
             </div>
             <div class="row row-cols-5">
-            <label><input class="team_check col-sm" id="Alpha Tauri" name="gr_team_check" type="checkbox"  checked> Alpha Tauri</label>
-            <label><input class="team_check col-sm" id="Haas" name="gr_team_check" type="checkbox"  checked> Haas</label>
-            <label><input class="team_check col-sm" id="Williams" name="gr_team_check" type="checkbox"  checked> Williams</label>
-            <label><input class="team_check col-sm" id="Aston Martin" name="gr_team_check" type="checkbox"  checked> Aston Martin</label>
-            <label><input class="team_check col-sm" id="Alfa Romeo" name="gr_team_check" type="checkbox"  checked> Alfa Romeo</label>
+                <label><input class="team_check col-sm" id="Alpha Tauri" name="gr_team_check" type="checkbox"  checked> Alpha Tauri</label>
+                <label><input class="team_check col-sm" id="Haas" name="gr_team_check" type="checkbox"  checked> Haas</label>
+                <label><input class="team_check col-sm" id="Williams" name="gr_team_check" type="checkbox"  checked> Williams</label>
+                <label><input class="team_check col-sm" id="Aston Martin" name="gr_team_check" type="checkbox"  checked> Aston Martin</label>
+                <label><input class="team_check col-sm" id="Alfa Romeo" name="gr_team_check" type="checkbox"  checked> Alfa Romeo</label>
             </div>
         </div>
         </div>
@@ -111,7 +113,7 @@
         <p id="p-suma">Press Alt+"c" for the sum of the products. </p>
         <section id="produse">
             <h2>Produse</h2>
-            <div class="grid-produse">
+            <div class="grid-produse" id="product_contaier">
                 <% for( let prod of locals.produse) { %>
                     <article class="produs" >
                         <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
@@ -137,6 +139,11 @@
                 <% }%>
             </div>
         </section>
+        <div id="pagination">
+            <button id="prev-btn">&laquo; Previous</button>
+            <div id="page-numbers"></div>
+            <button id="next-btn">Next &raquo;</button>
+          </div>
     </main>
 
     <%- include("../fragments/footer") %>

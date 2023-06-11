@@ -10974,11 +10974,3 @@ button {
   border-radius: 5px;
   background-color: var(--border-color);
 }
-
-ul {
-  padding: 0px !important;
-}
-
-h1 {
-  font: "Times New Roman";
-}

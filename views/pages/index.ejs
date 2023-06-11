@@ -159,16 +159,20 @@
             </video> -->
 
             <div id="picture-grid">
-                <% for (let imag of locals.imagini) { 
+                <% //let i = 0;
+                    for (let imag of locals.imagini) { //i += 1;
+                        // if(i % 2 != 0){
                     %>
-                       <figure>
+                    
+                       <figure class="grid-item">
                            <picture>
                                <source srcset="<%- imag.fisier_mediu %>" media="(max-width:1000px)" />
                                <img src="<%- imag.file_path %>" alt="imagine">
                            </picture>
                            <figcaption><%- imag.description %></figcaption>
                        </figure>
-               <% }  %>
+               <% } %>
+                   
             </div>
               
             <div id="galerie2" class="galerie">

@@ -6,8 +6,8 @@ body{
 }
 
 nav{
-    padding: 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
 
     width: calc(100vw - 25px);
     /* aici am scazut 25 px pentru a nu mai avea scroll orizontal */
@@ -16,7 +16,11 @@ nav{
 
     position: sticky;
     top: 0;
-    margin-left: calc(-1 * var(--page-padding));
+    /* margin-left: calc(-1 * var(--page-padding)); */
+}
+
+#menu{
+    overflow: hidden !important;
 }
 
 ul.menu{
