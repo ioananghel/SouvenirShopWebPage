@@ -90,3 +90,33 @@ button{
     border-radius: 5px;
     background-color: var(--border-color);
 }
+
+.checkbox-teams{
+    display: flex;
+}
+
+.checkbox-teams label{
+    margin-right: 15px;
+}
+
+.checkbox-drivers{
+    display: flex;
+}
+
+.checkbox-drivers label{
+    margin-right: 10px;
+}
+
+.custom-gutter {
+    margin-left: -5px;
+    margin-right: 500px;
+  }
+
+  .custom-gutter .col {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+/* 
+label .team_check{
+    margin-right: 400px;
+} */
