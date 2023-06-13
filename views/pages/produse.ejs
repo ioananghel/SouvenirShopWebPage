@@ -15,6 +15,7 @@
     <%- include("../fragments/header") %>
 
     <main>
+        <div id="main_div_filters">
         <div class = "row row-cols-3 g-2 custom-gutter">
         <label class="col"> Name: <input type="text" id="inp-nume" placeholder="Enter a product name"></label>
         <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
@@ -74,6 +75,7 @@
             <label><input class="driver_check col" id="Guanyu Zhou" name="gr_driver_check" type="checkbox"  checked> Guanyu Zhou</label>
             </div>
         </div>
+        </div>
 
         <!-- <label> Maximum Price: <div class="range-slider">
             <input type="range" id="inp-pret" value="30000" min="0"  max="30000"> <span id="infoRange">(0)</span>
@@ -106,7 +108,7 @@
 
                 <button id="resetare">Reset Filter <i class="bi bi-x-circle-fill"></i> </button><br/>
                 <button id="sortCrescNume">Ascending for price and name <i class="bi bi-sort-down-alt"></i></button>
-                <button id="sortDescrescNume">Descending for price and name <i class="bi bi-sort-down"></i></button>
+                <button id="sortDescrescNume">Descending for price and name<i class="bi bi-sort-down"></i></button>
             </div>
         </p>
         

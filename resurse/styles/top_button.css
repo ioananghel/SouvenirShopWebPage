@@ -30,7 +30,8 @@
     display: inline-block;
     color: var(--text-color);
     font-size: 45px;
-    margin-left: 5px;
+    margin-left: 0px;
+    margin-top: -20px;
     transition: 0.3s ease;
     transform-origin: center center;
   }
