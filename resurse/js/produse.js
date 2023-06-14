@@ -1,7 +1,7 @@
-window.onload=function() {
+window.addEventListener("load",function() {
 
     document.getElementById("filtrare").onclick= function(){
-        let val_nume=document.getElementById("inp-nume").value;
+        let val_nume=document.getElementById("inp-nume").value.toLowerCase();
         let val_radio1 = document.getElementById("i_rad1");
         let val_radio2 = document.getElementById("i_rad2");
         let val_radio3 = document.getElementById("i_rad3");
@@ -89,9 +89,9 @@ window.onload=function() {
         if(val_nume){
             for (let prod of produse){
                 prod.style.display="none";
-                let nume=prod.getElementsByClassName("val-nume")[0].innerHTML;
+                let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
         
-                let cond1= (val_nume==nume);
+                let cond1= (nume.startsWith(val_nume));
         
         
                 if(cond1){
@@ -216,4 +216,4 @@ window.onload=function() {
             }, 1000)
         }
     }
-}
+})

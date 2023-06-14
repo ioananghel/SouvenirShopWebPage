@@ -19,9 +19,9 @@ nav{
     /* margin-left: calc(-1 * var(--page-padding)); */
 }
 
-#menu{
+/* #menu{
     overflow: hidden !important;
-}
+} */
 
 ul.menu{
     display: flex;

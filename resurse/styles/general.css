@@ -31,6 +31,20 @@ body{
     font-family: "Times New Roman", Times, serif;
 }
 
+/* generating color pallete for the dark theme */
+body.dark{
+    --background-color: #1a1a1a;
+    --main-color: #e0270f;
+    --text-color: #e6e6e6;
+    --bird-color: #e6e6e6;
+    --highlight-color: #e6e6e6;
+    --degrade: #e0270f;
+    --color-link-visited: #e6e6e6;
+    --color-link-external-hover: #e0270f;
+    --color-link-hover: #e0270f;
+
+}
+
 h1{
     font-size: 2.5rem;
     font-family: "Times New Roman", Times, serif;
@@ -196,7 +210,7 @@ li{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    overflow: hidden !important;
+    /* overflow: hidden !important; */
     align-items: center;
     padding: 0px !important;
     margin: 0px !important;
