@@ -1,0 +1,16 @@
+#video-vtt {
+    width: 100%;
+    min-width: 300px;
+    max-width: 800px;
+}
+
+video::cue {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    vertical-align: bottom;
+}
+
+video::cue(b) {
+    font-weight: bold;
+}
