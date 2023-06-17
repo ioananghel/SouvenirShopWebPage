@@ -1,0 +1,26 @@
+.custom-hr {
+    height: 15px;
+    background-image: linear-gradient(to right, #e43e3e, #921f1f); /* specifică culorile dorite pentru gradient */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80% 15px; /* ajustează lățimea gradientului și grosimea liniei */
+    position: relative;
+    border: none;
+    border-radius: 50%;
+  }
+  
+  .custom-hr::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px; /* specifică dimensiunea dorită pentru cerc */
+    height: 20px;
+    border-radius: 50%;
+    background-image: radial-gradient(#ff0000, #00ff00); /* specifică culorile dorite pentru gradientul radial */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
