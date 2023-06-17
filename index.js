@@ -190,7 +190,7 @@ app.get("/produs/:id",function(req, res){
             randeazaEroare(res, 2);
         }
         else
-            res.render("pages/produs", {prod:rezultat.rows[0]});
+            res.render("./pages/produs", {prod:rezultat.rows[0]});
     });
 });
 
@@ -412,7 +412,7 @@ app.get("/cod/:username/:token",function(req,res){
                 function (err, rezUpdate){
                     if(err || rezUpdate.rowCount==0){
                         console.log("Cod:", err);
-                        afisareEroare(res,3);
+                        randeazaEroare(res,3);
                     }
                     else{
                         res.render("pages/confirmare.ejs");
@@ -456,7 +456,7 @@ app.get("*/galerie-animata.css.map",function(req, res){
 });
 
 app.get("/*.ejs",function(req, res){
-    afisareEroare(res,400);
+    randeazaEroare(res,400);
 })
 
 app.get(["/despre"], function(req, res){
@@ -486,13 +486,18 @@ function initializeazaErori(){
     console.log(continut);
 
     var obiectErori = JSON.parse(continut);
+    
     // for (let i = 0; i < obiectErori.info_erori.length; i++){
     //     console.log(obiectErori.info_erori[i].imagine);
     // }
 
     for(let eroare of obiectErori.info_erori){
-        eroare.imagine = "/" + obiectErori.cale_baza + "/" + eroare.imagine;
+        eroare.imagine = "./" + obiectErori.cale_baza + "/" + eroare.imagine;
+        console.log("eroare: ", eroare.imagine)
     }
+
+    obiectErori.eroare_default.imagine = "./" + obiectErori.cale_baza + "/" + obiectErori.eroare_default.imagine;
+    console.log("default: ", obiectErori.eroare_default.imagine);
 
     obGlobal.obErori = obiectErori;
 }
@@ -553,12 +558,12 @@ function randeazaEroare(res, identificator, titlu, text, imagine){
         text = text || eroare.text;
         imagine = imagine || eroare.imagine;
         if(eroare.status)
-            res.status(eroare.identificator).render("pages/eroare", {titlu: titlu, text: text, imagine: imagine});
+            res.status(eroare.identificator).render("pages/eroare.ejs", {titlu: titlu, text: text, imagine: imagine});
         else
-            res.render("pages/eroare", {titlu: titlu, text: text, imagine: imagine});
+            res.render("pages/eroare.ejs", {titlu: titlu, text: text, imagine: imagine});
     }
     else{
-        res.render("pages/eroare", {titlu: obGlobal.obErori.eroare_default.titlu, text: obGlobal.obErori.eroare_default.text, imagine: obGlobal.obErori.eroare_default.imagine});
+        res.render("pages/eroare.ejs", {titlu: obGlobal.obErori.eroare_default.titlu, text: obGlobal.obErori.eroare_default.text, imagine: obGlobal.obErori.eroare_default.imagine});
     }
 }
 

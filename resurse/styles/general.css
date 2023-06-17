@@ -215,3 +215,27 @@ li{
     padding: 0px !important;
     margin: 0px !important;
 }
+
+#text-reflectat{
+	position:absolute;
+	left:0;
+	top:100%;
+	transform-origin:0 0;
+	/*conetaza ordinea transformarilor!*/
+	transform: rotateX(180deg) skew(-45deg) scaleY(0.5) translate(10px,-25px); 
+	opacity:0.55;
+}
+
+#text{	
+	position:relative;
+}
+
+#text, #text-reflectat{
+	font-size:50px;
+	line-height:50px;
+	font-weight: bold;
+}
+
+#container-intro{
+    display: flex;
+}
