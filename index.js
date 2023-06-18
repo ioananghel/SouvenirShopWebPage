@@ -162,19 +162,31 @@ app.get("/produse",function(req, res){
     client.query("select * from unnest(enum_range(null::categ_produse))",function(err, rezCategorie){
         // console.log(err);
         // console.log(rez);
-
         let conditieWhere = ""
         if(req.query.tip)
-            conditieWhere = ` where tip_produs = '${req.query.tip}'`
-        
-        client.query("select * from produse" + conditieWhere , function( err, rez){
-            console.log(300)
-            if(err){
-                console.log(err);
-                randeazaEroare(res, 2);
-            }
-            else
-                res.render("pages/produse", {produse:rez.rows, optiuni:rezCategorie.rows});
+            conditieWhere = ` where tip_produs = '${req.query.tip}'`;
+        client.query("select * from unnest(enum_range(null::echipe))",function(err, rezEchipa){
+            // console.log(req.query.echipa)
+            if(req.query.echipa && conditieWhere != "")
+                conditieWhere += ` and team = '${req.query.echipa}'`;
+            else if(req.query.echipa)
+                conditieWhere = ` where team = '${req.query.echipa}'`;
+            client.query("select * from unnest(enum_range(null::soferi))",function(err, rezSoferi){
+                if(req.query.sofer && conditieWhere != "")
+                    conditieWhere += ` and driver = '${req.query.sofer}'`;
+                else if(req.query.sofer)
+                    conditieWhere = ` where driver = '${req.query.sofer}'`;
+                
+                client.query("select * from produse" + conditieWhere , function( err, rez){
+                    console.log(300)
+                    if(err){
+                        console.log(err);
+                        randeazaEroare(res, 2);
+                    }
+                    else
+                        res.render("pages/produse", {produse:rez.rows, optiuni:rezCategorie.rows});
+                });
+            });
         });
 
     })

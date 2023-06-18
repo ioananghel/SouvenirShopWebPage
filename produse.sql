@@ -3,6 +3,9 @@ DROP TYPE IF EXISTS tipuri_produse;
 
 CREATE TYPE categ_produse AS ENUM( 'racewear', 'team merchandise', 'art', 'limited edition', 'replicas','body work');
 CREATE TYPE tipuri_produse AS ENUM('mechanical', 'clothing', 'art');
+CREATE TYPE echipe AS ENUM('Mercedes', 'Red Bull', 'Aston Martin', 'Alpine', 'Ferrari', 'McLaren', 'Alfa Romeo', 'AlphaTauri', 'Williams', 'Haas');
+CREATE TYPE soferi AS ENUM('Lewis Hamilton', 'Max Verstappen', 'George Russel', 'Sergio Perez', 'Lando Norris', 'Charles Leclerc', 'Carlos Sainz', 'Oscar Piastri', 'Valtteri Bottas', 'Esteban Ocon', 'Fernando Alonso', 'Guanyu Zhou', 'Lance Stroll', 'Nick DeVries', 'Kevin Magnussen', 'Pierre Gasly', 'Yuki Tsunoda', 'Nico Hulkenberg', 'Logan Seargent', 'Alex Albon');
+
 
 
 CREATE TABLE IF NOT EXISTS produse (
