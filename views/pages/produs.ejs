@@ -6,9 +6,11 @@
         
         <title>Cofetăria Dulcelind - home</title>
           
-        <link href="/resurse/styles/produs.css" type="text/css" rel="stylesheet" />
+
         <%- include("../fragments/head") %>   
         <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <link rel="stylesheet" href="/resurse/styles/produse.css" type="text/css" />
+
     </head>
     <body>
     <%- include("../fragments/header") %>
@@ -20,11 +22,11 @@
                     <h3><span class="nume"><%- locals.prod.nume %></span></h3>
                     <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
                     <p>Descriere: <span class="descriere"><%- locals.prod.descriere %> </span></p>
-                    <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>
-                    <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>
-                    <p>Gramaj: <span class="gramaj"><%- locals.prod.gramaj %> </span></p>
+                    <p>Ingrediente: <span class="ingrediente"><%- locals.prod.materials %> </span></p>
+                    <p>Calorii: <span class="calorii"><%- locals.prod.driver %> </span></p>
+                    <p>Gramaj: <span class="gramaj"><%- locals.prod.team %> </span></p>
                     <p>Categorie: <span class="categorie"><%- locals.prod.categorie %> </span></p>
-                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.pt_diabetici %> </span></p>
+                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.age_restriction %> </span></p>
                     <p>Data adăugare: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
                     <figure class="imag-produs">
                         <img  src="/resurse/imagini/produse/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />

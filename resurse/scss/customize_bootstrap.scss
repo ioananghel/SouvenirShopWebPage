@@ -229,3 +229,36 @@ ul{
 h1{
     font: "Times New Roman";
 }
+@import 'variables.scss';
+@import '../../node_modules/bootstrap/scss/_functions.scss';
+
+.button {
+    // @include btn; 
+    border-radius: $custom-border-radius;
+    border-width: $custom-border-width;
+    border-color: var(--border-color);
+}
+
+input[type="range"] {
+    // Utilizați clasele Bootstrap pentru dimensionarea și stilizarea inputului de tip range
+    // @include form-range;
+  
+    // Personalizarea dimensiunii și culorii cursorului
+    &::-webkit-slider-thumb {
+        width: $custom-range-thumb-size;
+        height: $custom-range-thumb-size;
+        background-color: $custom-range-thumb-color;
+        border-radius: 50%;
+    }
+  
+    // Personalizarea culorii sliderului
+    &::-webkit-slider-runnable-track {
+        background-color: $custom-range-track-color;
+        height: $custom-range-track-height;
+        border-radius: 50%;
+    }
+}
+
+input[type="radio"] {
+    border-width: 3px; // Adjust the desired border width
+  }

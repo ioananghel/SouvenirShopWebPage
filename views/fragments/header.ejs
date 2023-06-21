@@ -31,6 +31,15 @@
             <li>
                 <a href="/inregistrare">Register</a>
             </li>
+            <li><a href="/produse">Products</a>
+                <ul>
+                    <li><a href="/produse">Toate</a></li>
+                    <% for (let i = 0; i < optiuniMeniu.length; i++) { 
+                        let categorie = optiuniMeniu[i]['unnest']%>
+                        <li><a href="/produse?tip=<%-categorie%>"><%-categorie%></a></li>
+                    <% } %>
+                </ul>
+            </li>
             <li>
                 <a href="/produse">Teams</a>
                 <ul>

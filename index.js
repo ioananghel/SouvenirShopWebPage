@@ -194,7 +194,7 @@ app.get("/produse",function(req, res){
 
 
 app.get("/produs/:id",function(req, res){
-    console.log(req.params);
+    console.log("CHECKINGGG", req.params.id);
    
     client.query(`select * from produse where id=${req.params.id}`, function( err, rezultat){
         if(err){
