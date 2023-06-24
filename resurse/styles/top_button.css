@@ -28,7 +28,7 @@
   
   #go-to-top {
     display: inline-block;
-    color: var(--text-color);
+    color: var(--arrow-color);
     font-size: 45px;
     margin-left: 0px;
     margin-top: -20px;

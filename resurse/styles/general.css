@@ -6,14 +6,6 @@ html{
 }
 
 body{
-    /* 
-        light-pink: #FF9F9C
-        light-red: #E65447
-        red: #FA2100
-        orange-red: #E3330B
-        orange: #F9501C
-    */
-
     --background-color: #FADBC0;
     --main-color: #FA1D00;
     --text-color: #330929;
@@ -31,11 +23,11 @@ body{
     font-family: "Times New Roman", Times, serif;
 }
 
-/* generating color pallete for the dark theme */
 body.dark{
     --background-color: #1a1a1a;
     --main-color: #e0270f;
     --text-color: #e6e6e6;
+    --arrow-color: #473636;
     --bird-color: #e6e6e6;
     --highlight-color: #e6e6e6;
     --degrade: #e0270f;
@@ -44,6 +36,20 @@ body.dark{
     --color-link-hover: #e0270f;
 
 }
+
+body.winter {
+    --background-color: #eaf2f9;
+    --main-color: #0088cc;
+    --text-color: #222222;
+    --arrow-color: #222222;
+    --border-color: #c1d8e5;
+    --highlight-color: #d8f0ff;
+    --degrade: #0088cc;
+    --color-link-visited: #222222;
+    --color-link-external-hover: #005c99;
+    --color-link-hover: #005c99;
+  }
+  
 
 h1{
     font-size: 2.5rem;
