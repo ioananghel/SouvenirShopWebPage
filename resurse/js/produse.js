@@ -41,9 +41,65 @@ window.addEventListener("load",function() {
     const hideButton = document.getElementsByClassName('hide');
     var produse=document.getElementsByClassName("produs");
 
+    hidden = localStorage.getItem("hidden");
+    if(hidden)
+        hidden = hidden.split(",");
+    else
+        hidden = [];
+    for(let elem of hideButton){
+        elem.addEventListener('click', function() {
+            if(elem.checked == true){
+                let id = elem.value;
+                console.log(id);
+                hidden.push(id);
+
+                localStorage.setItem("hidden", hidden);
+            }
+            else{
+                let id = elem.value;
+                console.log(id);
+                index = hidden.indexOf(id);
+                hidden.splice(index, 1);
+
+                localStorage.setItem("hidden", hidden);
+            }
+
+            var local_hidden = localStorage.getItem("hidden");
+            if(local_hidden){
+                local_hidden = local_hidden.split(",");
+                for(let index of local_hidden){
+                    console.log(index);
+                    for(let prod of produse){
+                        let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+
+                        if(local_hidden.includes(id_prod)){
+                            prod.style.display = "none";
+                        }
+                    }
+                }
+            } 
+        });
+    }
+
+    var local_hidden = localStorage.getItem("hidden");
+    if(local_hidden){
+        local_hidden = local_hidden.split(",");
+        for(let index of local_hidden){
+            console.log(index);
+            for(let prod of produse){
+                let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+
+                if(local_hidden.includes(id_prod)){
+                    prod.style.display = "none";
+                }
+            }
+        }
+    }  
+
     for(let pin of pinButton){
         pin.addEventListener('click', function() {
             let id = pin.value;
+            console.log(id);
             let found = false;
             for(let ids of pinned){
                 if(ids == id){
@@ -124,7 +180,7 @@ window.addEventListener("load",function() {
         if(val_dropdown != "toate"){
             for(let prod of produse){
                 let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                if(!pinned.includes(id_prod)){
+                if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                     prod.style.display="none";
                     let categ=prod.getElementsByClassName("val-categorie")[0].innerHTML;
                     if(val_dropdown == categ){
@@ -142,7 +198,7 @@ window.addEventListener("load",function() {
         if(val_radio1.checked){
             for(let prod of produse){
                 let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                if(!pinned.includes(id_prod)){
+                if(!pinned.includes(id_prod)  || !localStorage.getItem("hidden").includes(id_prod)){
                     if(prod.style.display == "block"){
                         prod.style.display="none";
                         let an=prod.getElementsByClassName("val-an")[0].innerHTML;
@@ -156,7 +212,7 @@ window.addEventListener("load",function() {
         if(val_radio2.checked){
             for(let prod of produse){
                 let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                if(!pinned.includes(id_prod)){
+                if(!pinned.includes(id_prod)  || !localStorage.getItem("hidden").includes(id_prod)){
                     if(prod.style.display == "block"){
                         prod.style.display="none";
                         let an=prod.getElementsByClassName("val-an")[0].innerHTML;
@@ -170,7 +226,7 @@ window.addEventListener("load",function() {
         if(val_radio3.checked){
             for(let prod of produse){
                 let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                if(!pinned.includes(id_prod)){
+                if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                     if(prod.style.display == "block"){
                         prod.style.display="none";
                         let an=prod.getElementsByClassName("val-an")[0].innerHTML;
@@ -184,7 +240,7 @@ window.addEventListener("load",function() {
         
         for(let prod of produse){
             let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-            if(!pinned.includes(id_prod)){
+            if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                 if(prod.style.display == "block"){
                     prod.style.display="none";
                     let pret=prod.getElementsByClassName("val-pret")[0].innerHTML;
@@ -201,7 +257,7 @@ window.addEventListener("load",function() {
             const max_diff = 2;
             for (let prod of produse){
                 let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                if(!pinned.includes(id_prod)){
+                if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                     prod.style.display="none";
                     let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
 
@@ -222,7 +278,7 @@ window.addEventListener("load",function() {
             if(elem.checked){
                 for(let prod of produse){
                     let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                    if(!pinned.includes(id_prod)){
+                    if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                         let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
                         if(team.id == echipa && prod.style.display == "block"){
                                 prod.style.display="block";
@@ -233,7 +289,7 @@ window.addEventListener("load",function() {
             else{
                 for(let prod of produse){
                     let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                    if(!pinned.includes(id_prod)){
+                    if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                         let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
                         if(team.id == echipa && prod.style.display == "block"){
                                 prod.style.display="none";
@@ -248,7 +304,7 @@ window.addEventListener("load",function() {
             if(elem.checked){
                 for(let prod of produse){
                     let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                    if(!pinned.includes(id_prod)){
+                    if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                         let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
                         if(driver.id == sofer && prod.style.display == "block"){
                                 prod.style.display="block";
@@ -259,7 +315,7 @@ window.addEventListener("load",function() {
             else{
                 for(let prod of produse){
                     let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
-                    if(!pinned.includes(id_prod)){
+                    if(!pinned.includes(id_prod) || !localStorage.getItem("hidden").includes(id_prod)){
                         let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
                         if(driver.id == sofer && prod.style.display == "block"){
                                 prod.style.display="none";
