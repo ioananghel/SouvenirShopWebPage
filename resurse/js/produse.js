@@ -1,3 +1,35 @@
+function levenshteinDistance(a, b) {
+    const m = a.length;
+    const n = b.length;
+    const dp = [];
+  
+    for (let i = 0; i <= m; i++) {
+      dp[i] = [];
+      dp[i][0] = i;
+    }
+  
+    for (let j = 0; j <= n; j++) {
+      dp[0][j] = j;
+    }
+  
+    for (let i = 1; i <= m; i++) {
+      for (let j = 1; j <= n; j++) {
+        if (a[i - 1] === b[j - 1]) {
+          dp[i][j] = dp[i - 1][j - 1];
+        } else {
+          dp[i][j] = Math.min(
+            dp[i - 1][j - 1] + 1, // substituție
+            dp[i][j - 1] + 1, // inserare
+            dp[i - 1][j] + 1 // ștergere
+          );
+        }
+      }
+    }
+    console.log("distance", dp[m][n]);
+  
+    return dp[m][n];
+  }
+
 window.addEventListener("load",function() {
 
     document.getElementById("filtrare").onclick= function(){
@@ -87,12 +119,15 @@ window.addEventListener("load",function() {
         }
         
         if(val_nume){
+            val_num = val_nume.toLowerCase();
+            const max_diff = 2;
             for (let prod of produse){
                 prod.style.display="none";
                 let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
+
+                const similarity = levenshteinDistance(val_num, nume);
         
-                let cond1= (nume.startsWith(val_nume));
-        
+                let cond1= (nume.startsWith(val_nume) || similarity <= max_diff);
         
                 if(cond1){
                     prod.style.display="block";
@@ -143,24 +178,27 @@ window.addEventListener("load",function() {
     }
 
     document.getElementById("resetare").onclick= function(){
-                
-        document.getElementById("inp-nume").value="";
-        
-        document.getElementById("inp-pret").value=document.getElementById("inp-pret").max;
-        document.getElementById("inp-categorie").value="toate";
-        document.getElementById("i_rad4").checked=true;
-        let team_list = document.getElementsByClassName("team_check");
-        for(let team of team_list){
-            team.checked=true;
-        }
-        let driver_list = document.getElementsByClassName("driver_check");
-        for(let driver of driver_list){
-            driver.checked=true;
-        }
-        var produse=document.getElementsByClassName("produs");
-        document.getElementById("infoRange").innerHTML="(0)";
-        for (let prod of produse){
-            prod.style.display="block";
+
+        const confirmare = confirm("Esti sigur ca vrei sa resetezi filtrele?");
+        if(confirmare){
+            document.getElementById("inp-nume").value="";
+            
+            document.getElementById("inp-pret").value=document.getElementById("inp-pret").max;
+            document.getElementById("inp-categorie").value="toate";
+            document.getElementById("i_rad4").checked=true;
+            let team_list = document.getElementsByClassName("team_check");
+            for(let team of team_list){
+                team.checked=true;
+            }
+            let driver_list = document.getElementsByClassName("driver_check");
+            for(let driver of driver_list){
+                driver.checked=true;
+            }
+            var produse=document.getElementsByClassName("produs");
+            document.getElementById("infoRange").innerHTML="(0)";
+            for (let prod of produse){
+                prod.style.display="block";
+            }
         }
     }
 
@@ -213,7 +251,7 @@ window.addEventListener("load",function() {
                 let info=document.getElementById("info-suma");
                 if(info)
                     info.remove();
-            }, 1000)
+            }, 2000)
         }
     }
 })
