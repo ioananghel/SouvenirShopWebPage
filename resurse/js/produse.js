@@ -30,9 +30,72 @@ function levenshteinDistance(a, b) {
     return dp[m][n];
   }
 
+var pinned = [];
+var not_shown = [];
+var hidden = [];
+
 window.addEventListener("load",function() {
 
+    const pinButton = document.getElementsByClassName('pin');
+    const noShowButton = document.getElementsByClassName('no_show');
+    const hideButton = document.getElementsByClassName('hide');
+    var produse=document.getElementsByClassName("produs");
+
+    for(let pin of pinButton){
+        pin.addEventListener('click', function() {
+            let id = pin.value;
+            let found = false;
+            for(let ids of pinned){
+                if(ids == id){
+                    found = true;
+                }
+            }
+
+            if(found && pin.checked == false){
+                index = pinned.indexOf(id);
+                pinned.splice(index, 1);
+            }
+            else if(!found && pin.checked == true){
+                pinned.push(id);
+                console.log(pinned)
+            }
+        });
+    }
+
+    for(let noShow of noShowButton){
+        noShow.addEventListener('click', function() {
+            let id = noShow.value;
+            let found = false;
+            for(let ids of not_shown){
+                if(ids == id){
+                    found = true;
+                }
+            }
+            if(found && noShow.checked == false){
+                index = not_shown.indexOf(id);
+                not_shown.splice(index, 1);
+                for(let prod of produse){
+                    let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+
+                    if(id_prod == id)
+                        prod.style.display = "block";
+                }
+            }
+            else if(!found && noShow.checked == true){
+                not_shown.push(id);
+                console.log(not_shown)
+                for(let prod of produse){
+                    let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+
+                    if(id_prod == id)
+                        prod.style.display = "none";
+                }
+            }
+        });
+    }
+
     document.getElementById("filtrare").onclick= function(){
+
         let val_nume=document.getElementById("inp-nume").value.toLowerCase();
         let val_radio1 = document.getElementById("i_rad1");
         let val_radio2 = document.getElementById("i_rad2");
@@ -56,14 +119,17 @@ window.addEventListener("load",function() {
         //     document.getElementById("inp-nume").classList.remove('is-invalid');
         // }
 
-        var produse=document.getElementsByClassName("produs");
+        // var produse=document.getElementsByClassName("produs");
 
         if(val_dropdown != "toate"){
             for(let prod of produse){
-                prod.style.display="none";
-                let categ=prod.getElementsByClassName("val-categorie")[0].innerHTML;
-                if(val_dropdown == categ){
-                    prod.style.display="block";
+                let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                if(!pinned.includes(id_prod)){
+                    prod.style.display="none";
+                    let categ=prod.getElementsByClassName("val-categorie")[0].innerHTML;
+                    if(val_dropdown == categ){
+                        prod.style.display="block";
+                    }
                 }
             }
         }
@@ -75,45 +141,57 @@ window.addEventListener("load",function() {
 
         if(val_radio1.checked){
             for(let prod of produse){
-                if(prod.style.display == "block"){
-                    prod.style.display="none";
-                    let an=prod.getElementsByClassName("val-an")[0].innerHTML;
-                    if(an <= 1990){
-                        prod.style.display="block";
+                let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                if(!pinned.includes(id_prod)){
+                    if(prod.style.display == "block"){
+                        prod.style.display="none";
+                        let an=prod.getElementsByClassName("val-an")[0].innerHTML;
+                        if(an <= 1990){
+                            prod.style.display="block";
+                        }
                     }
                 }
             }
         }
         if(val_radio2.checked){
             for(let prod of produse){
-                if(prod.style.display == "block"){
-                    prod.style.display="none";
-                    let an=prod.getElementsByClassName("val-an")[0].innerHTML;
-                    if(an >= 1990 && an <= 2010){
-                        prod.style.display="block";
+                let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                if(!pinned.includes(id_prod)){
+                    if(prod.style.display == "block"){
+                        prod.style.display="none";
+                        let an=prod.getElementsByClassName("val-an")[0].innerHTML;
+                        if(an >= 1990 && an <= 2010){
+                            prod.style.display="block";
+                        }
                     }
                 }
             }
         }
         if(val_radio3.checked){
             for(let prod of produse){
-                if(prod.style.display == "block"){
-                    prod.style.display="none";
-                    let an=prod.getElementsByClassName("val-an")[0].innerHTML;
-                    if(an >= 2010){
-                        prod.style.display="block";
+                let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                if(!pinned.includes(id_prod)){
+                    if(prod.style.display == "block"){
+                        prod.style.display="none";
+                        let an=prod.getElementsByClassName("val-an")[0].innerHTML;
+                        if(an >= 2010){
+                            prod.style.display="block";
+                        }
                     }
                 }
             }
         }
         
         for(let prod of produse){
-            if(prod.style.display == "block"){
-                prod.style.display="none";
-                let pret=prod.getElementsByClassName("val-pret")[0].innerHTML;
-                pret = Number(pret);
-                if(pret <= val_slider){
-                   prod.style.display="block";
+            let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+            if(!pinned.includes(id_prod)){
+                if(prod.style.display == "block"){
+                    prod.style.display="none";
+                    let pret=prod.getElementsByClassName("val-pret")[0].innerHTML;
+                    pret = Number(pret);
+                    if(pret <= val_slider){
+                    prod.style.display="block";
+                    }
                 }
             }
         }
@@ -122,15 +200,18 @@ window.addEventListener("load",function() {
             val_num = val_nume.toLowerCase();
             const max_diff = 2;
             for (let prod of produse){
-                prod.style.display="none";
-                let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
+                let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                if(!pinned.includes(id_prod)){
+                    prod.style.display="none";
+                    let nume=prod.getElementsByClassName("val-nume")[0].innerHTML.toLowerCase();
 
-                const similarity = levenshteinDistance(val_num, nume);
-        
-                let cond1= (nume.startsWith(val_nume) || similarity <= max_diff);
-        
-                if(cond1){
-                    prod.style.display="block";
+                    const similarity = levenshteinDistance(val_num, nume);
+            
+                    let cond1= (nume.startsWith(val_nume) || similarity <= max_diff);
+            
+                    if(cond1){
+                        prod.style.display="block";
+                    }
                 }
             }
         }

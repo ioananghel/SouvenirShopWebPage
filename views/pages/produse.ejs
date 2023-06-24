@@ -120,10 +120,11 @@
                 <% for( let prod of locals.produse) { %>
                     <article class="produs vert-container">
                         <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <h3 style="display: none;"><span class="val-id"><%- prod.id %></span></h3>
                         <div class="tab horiz-container">
                             <div id="img-prod">
                                 <figure>
-                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:200%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:150%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
                                 </figure>
                             </div>
                             <div id="categ_subcateg">
@@ -143,10 +144,24 @@
                             <p class="categorie info-prod">Age restriction: <span class="val-restrictie"><%- prod.age_restriction %></span></p>
 
                         </div>
-                        <label class="selecteaza-cos">
-                            Add to cart <i class="bi bi-cart2"></i><br/>
-                            <input type="checkbox"  class="select-cos" value="<%-prod.id %>" autocomplete="off">
-                        </label>
+                        <div class="button_container" style="display: flex;">
+                            <div class="prod_button">
+                                <i class="fa-solid fa-thumbtack"></i>
+                                <input type="checkbox" class="pin" value="<%-prod.id %>" autocomplete="off">
+                            </div>
+                            <div class="prod_button">
+                                <i class="fa-solid fa-eye-slash"></i>
+                                <input type="checkbox" class="no_show" value="<%-prod.id %>" autocomplete="off">
+                            </div>
+                            <div class="prod_button">
+                                <i class="fa-solid fa-square-minus"></i>
+                                <input type="checkbox" class="hide" value="<%-prod.id %>" autocomplete="off">
+                            </div>
+                            <label class="selecteaza-cos">
+                                Add to cart <i class="bi bi-cart2"></i><br/>
+                                <input type="checkbox"  class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                            </label>
+                        </div>
                     </article>
                 <% }%>
             </div>
