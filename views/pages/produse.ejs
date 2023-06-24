@@ -115,24 +115,34 @@
         <p id="p-suma">Press Alt+"c" for the sum of the products. </p>
         <section id="produse">
             <h2>Produse</h2>
+            <h3 id="nu_exista_produse" style="display: none; padding: 2rem;">Nu exista produse care sa se potriveasca cu selectia dumneavoastra!</h3>
             <div class="grid-produse" id="product_contaier">
                 <% for( let prod of locals.produse) { %>
-                    <article class="produs" >
+                    <article class="produs vert-container">
                         <h3 class="nume"><a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
-                        <div id="img-prod">
-                        <figure>
-                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
-                        </figure>
+                        <div class="tab horiz-container">
+                            <div id="img-prod">
+                                <figure>
+                                    <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:200%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                                </figure>
+                            </div>
+                            <div id="categ_subcateg">
+                                <div class="tab" id="img-categ">Category: <%- prod.tip_produs%></div>
+                                <div class="tab" id="img-subcateg">Subcategory: <%- prod.categorie%></div>
+                                <div class="tab" id="img-desc">Description: <%- prod.descriere%></div>
+                            </div>
                         </div>
-                        <div class="info-prod">
-                            <p class="pret">Price: <span class="val-pret"><%- prod.pret%></span></p>
-                            <p class="sofer">Driver: <span class="val-sofer"><%- prod.driver%></span></p>
-                            <p class="echipa">Team: <span class="val-echipa"><%- prod.team%></span></p>
+                        <div class="tab info-prod">
+                            <p class="pret info-prod">Price: <span class="val-pret"><%- prod.pret%></span></p>
+                            <p class="sofer info-prod">Driver: <span class="val-sofer"><%- prod.driver%></span></p>
+                            <p class="echipa info-prod">Team: <span class="val-echipa"><%- prod.team%></span></p>
 
                         
-                        <p class="categorie">Manufacturing Year: <span class="val-an"><%- prod.an_fabricatie%></span></p>
-                        <p class="categorie">Category: <span class="val-categorie"><%- prod.categorie%></span></p>
-                    </div>
+                            <p class="categorie info-prod">Manufacturing Year: <time datetime="<%- prod.an_fabricatie%>"><span class="val-an"><%- prod.an_fabricatie%></span></time></p>
+                            <p class="categorie info-prod">Category: <span class="val-categorie"><%- prod.categorie%></span></p>
+                            <p class="categorie info-prod">Age restriction: <span class="val-restrictie"><%- prod.age_restriction %></span></p>
+
+                        </div>
                         <label class="selecteaza-cos">
                             Add to cart <i class="bi bi-cart2"></i><br/>
                             <input type="checkbox"  class="select-cos" value="<%-prod.id %>" autocomplete="off">
