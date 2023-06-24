@@ -221,17 +221,23 @@ window.addEventListener("load",function() {
             
             if(elem.checked){
                 for(let prod of produse){
-                    let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
-                    if(team.id == echipa && prod.style.display == "block"){
-                            prod.style.display="block";
+                    let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                    if(!pinned.includes(id_prod)){
+                        let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
+                        if(team.id == echipa && prod.style.display == "block"){
+                                prod.style.display="block";
+                        }
                     }
                 }
             }
             else{
                 for(let prod of produse){
-                    let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
-                    if(team.id == echipa && prod.style.display == "block"){
-                            prod.style.display="none";
+                    let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                    if(!pinned.includes(id_prod)){
+                        let echipa=prod.getElementsByClassName("val-echipa")[0].innerHTML;
+                        if(team.id == echipa && prod.style.display == "block"){
+                                prod.style.display="none";
+                        }
                     }
                 }
             }
@@ -241,17 +247,23 @@ window.addEventListener("load",function() {
             let elem = document.getElementById(driver.id);
             if(elem.checked){
                 for(let prod of produse){
-                    let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
-                    if(driver.id == sofer && prod.style.display == "block"){
-                            prod.style.display="block";
+                    let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                    if(!pinned.includes(id_prod)){
+                        let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
+                        if(driver.id == sofer && prod.style.display == "block"){
+                                prod.style.display="block";
+                        }
                     }
                 }
             }
             else{
                 for(let prod of produse){
-                    let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
-                    if(driver.id == sofer && prod.style.display == "block"){
-                            prod.style.display="none";
+                    let id_prod = prod.getElementsByClassName("val-id")[0].innerHTML;
+                    if(!pinned.includes(id_prod)){
+                        let sofer=prod.getElementsByClassName("val-sofer")[0].innerHTML;
+                        if(driver.id == sofer && prod.style.display == "block"){
+                                prod.style.display="none";
+                        }
                     }
                 }
             }
