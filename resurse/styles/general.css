@@ -232,6 +232,12 @@ li{
 	opacity:0.55;
 }
 
+#text:hover #text-reflectat {
+    transform: rotateX(180deg) skew(-45deg) scaleY(1.5) translate(10px, -25px);
+    opacity: 0.55;
+    transition: transform 1s linear;
+  }
+
 #text{	
 	position:relative;
 }

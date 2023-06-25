@@ -29,27 +29,30 @@
             <div id="page-grid">
                 <div id="intro">
                     <div id="container-intro">
-                        <% if(!locals.utilizator) { %>
-                            <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
-                                <p>
-                                    <label>
-                                        Username: <input type="text" name="username" id="inp-username" value="" required">
-                                    </label>
-                                </p>
-                                <p>
-                                    <label>
-                                        Parola: <input id="parl" type="password" required  name="parola" value="">
-                                    </label>
-                                </p>
-                                <p><input type="submit" value="Logare"></p>
-                            </form>
-                            <p><%- locals.mesajLogin %></p>
-                            <% } else {%>
-                               <%- locals.succesLogin %>
-                            <% }  %>
-                        <div id="text">
-                            Intro
-                            <div id="text-reflectat">Intro</div>
+                        <div>
+                            <% if(!locals.utilizator) { %>
+                                <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+                                    <p>
+                                        <label>
+                                            Username: <input type="text" name="username" id="inp-username" value="" required">
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            Parola: <input id="parl" type="password" required  name="parola" value="">
+                                        </label>
+                                    </p>
+                                    <p><input type="submit" value="Logare"></p>
+                                </form>
+                                <p><%- locals.mesajLogin %></p>
+                                <% } else {%>
+                                <%- locals.succesLogin %>
+                                <% }  %>
+                            <div id="text">
+                                Intro
+                                <div id="text-reflectat">Intro</div>
+                            </div>
+                            <br>
                         </div>
                         <div>
                             <!-- <button id = "tema" class="btn btn-primary"> <i class="fa-solid fa-sun"></i> <i class="fa-solid fa-moon"></i> Dark theme</button> -->
