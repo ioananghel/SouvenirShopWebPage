@@ -36,6 +36,41 @@ var hidden = [];
 
 window.addEventListener("load",function() {
 
+    let iduriProduse=localStorage.getItem("cos_virtual");
+    iduriProduse=iduriProduse?iduriProduse.split(","):[];      //["3","1","10","4","2"]
+
+    for(let idp of iduriProduse){
+        let ch = document.querySelector(`[value='${idp}'].select-cos`);
+        if(ch){
+            ch.checked=true;
+        }
+        else{
+            console.log("id cos virtual inexistent:", idp);
+        }
+    }
+
+    //----------- adaugare date in cosul virtual (din localStorage)
+    let checkboxuri= document.getElementsByClassName("select-cos");
+    for(let ch of checkboxuri){
+        ch.onchange=function(){
+            let iduriProduse=localStorage.getItem("cos_virtual");
+            iduriProduse=iduriProduse?iduriProduse.split(","):[];
+
+            if( this.checked){
+                iduriProduse.push(this.value)
+            }
+            else{
+                let poz= iduriProduse.indexOf(this.value);
+                if(poz != -1){
+                    iduriProduse.splice(poz,1);
+                }
+            }
+
+            localStorage.setItem("cos_virtual", iduriProduse.join(","))
+        }
+        
+    }
+
     const pinButton = document.getElementsByClassName('pin');
     const noShowButton = document.getElementsByClassName('no_show');
     const hideButton = document.getElementsByClassName('hide');

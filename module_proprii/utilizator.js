@@ -36,6 +36,7 @@ class Utilizator{
     }
 
     checkName(nume){
+        console.log("\""+nume+"\"")
         return nume!="" && nume.match(new RegExp("^[A-Z][a-z]+$")) ;
     }
 
@@ -68,6 +69,7 @@ class Utilizator{
         let parolaCriptata=Utilizator.criptareParola(this.parola);
         let utiliz=this;
         let token=parole.genereazaToken(100);
+        console.log(this.username)
         AccesBD.getInstanta(Utilizator.tipConexiune).insert({tabel:Utilizator.tabel,
             campuri:{
                 username:this.username,
@@ -79,6 +81,7 @@ class Utilizator{
                 cod:token,
                 poza:this.poza}
             }, function(err, rez){
+            console.log("dupa insert: ", this.username)
             if(err)
                 console.log(err);
             
@@ -140,6 +143,7 @@ class Utilizator{
         if (!username) return null;
         let eroare=null;
         AccesBD.getInstanta(Utilizator.tipConexiune).select({tabel:"utilizatori",campuri:['*'],conditiiAnd:[`username=$1`]}, function (err, rezSelect){
+            let u = null;
             if(err){
                 console.error("Utilizator:", err);
                 console.log("Utilizator",rezSelect.rows.length);
@@ -150,7 +154,9 @@ class Utilizator{
                 eroare=-1;
             }
             //constructor({id, username, nume, prenume, email, rol, culoare_chat="black", poza}={})
-            let u= new Utilizator(rezSelect.rows[0])
+            else{
+                u= new Utilizator(rezSelect.rows[0])
+            }
             proceseazaUtiliz(u, obparam, eroare);
         }, [username]);
     }

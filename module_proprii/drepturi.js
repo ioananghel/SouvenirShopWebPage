@@ -16,7 +16,10 @@
  */
 const Drepturi = {
 	vizualizareUtilizatori: Symbol("vizualizareUtilizatori"),
+	modificareUtilizatori: Symbol("modificareUtilizatori"),
 	stergereUtilizatori: Symbol("stergereUtilizatori"),
+	modificareProduse: Symbol("modificareProduse"),
+	adaugareProduse: Symbol("adaugareProduse"),
 	cumparareProduse: Symbol("cumparareProduse"),
 	vizualizareGrafice: Symbol("vizualizareGrafice")
 }

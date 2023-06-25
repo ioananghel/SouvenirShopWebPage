@@ -10,6 +10,13 @@ const formidable=require("formidable");
 const {Utilizator}=require("./module_proprii/utilizator.js")
 const session=require('express-session');
 const Drepturi = require("./module_proprii/drepturi.js");
+// const QRCode= require('qrcode');
+// const puppeteer=require('puppeteer');
+// const mongodb=require('mongodb');
+// const helmet=require('helmet');
+// const xmljs=require('xml-js');
+
+// const request=require("request");
 
 
 AccesBD.getInstanta().select({
@@ -62,6 +69,12 @@ client.query("select * from unnest(enum_range(null::tipuri_produse))",function(e
 
 app= express();
 console.log("Folder proiect", __dirname);
+
+app.use(session({ // aici se creeaza proprietatea session a requestului (pot folosi req.session)
+    secret: 'abcdefg',//folosit de express session pentru criptarea id-ului de sesiune
+    resave: true,
+    saveUninitialized: false
+  }));
 
 vectorFoldere=["temp", "temp1", "backup", "poze_uploadate"]
 for (let folder of vectorFoldere){
@@ -132,6 +145,12 @@ app.use("/node_modules", express.static(__dirname + "/node_modules"));
 
 app.use("/*", function(req, res, next){
     res.locals.optiuniMeniu = obGlobal.optiuniMeniu;
+
+    res.locals.Drepturi=Drepturi;
+    if (req.session.utilizator){
+        req.utilizator=res.locals.utilizator=new Utilizator(req.session.utilizator);
+    }
+
     next();
 })
 
@@ -148,8 +167,12 @@ app.get("/ceva", function(req, res){
     res.send("<h1>yessir</h1> ip: "+req.ip);
 })
 
-app.get(["/index", "/home", "/"], function(req, res){
-    res.render("./pages/index", {ip: req.ip, a:10, b:20, imagini: obGlobal.obImagini.images});
+app.get(["/index", "/home", "/", "/login"], async function(req, res){
+
+    let sir=req.session.mesajLogin;
+    req.session.mesajLogin=null;
+
+    res.render("./pages/index", {ip: req.ip, a:10, b:20, imagini: obGlobal.obImagini.images, mesajLogin: sir});
 })
 
 app.get("/produse",function(req, res){
@@ -341,7 +364,7 @@ app.post("/profil", function(req, res){
             {tabel:"utilizatori",
             campuri:["nume","prenume","email","culoare_chat"],
             valori:[`${campuriText.nume}`,`${campuriText.prenume}`,`${campuriText.email}`,`${campuriText.culoare_chat}`],
-            conditiiAnd:[`parola='${parolaCriptata}'`]
+            conditiiAnd:[`username='${campuriText.username}'`, `parola='${parolaCriptata}'`]
         },          
         function(err, rez){
             if(err){
@@ -385,7 +408,7 @@ app.get("/useri", function(req, res){
         });
     }
     else{
-        renderError(res, 403);
+        randeazaEroare(res, 403);
     }
 });
 
@@ -402,7 +425,7 @@ app.post("/sterge_utiliz", function(req, res){
             });
         });
     }else{
-        renderError(res,403);
+        randeazaEroare(res,403);
     }
 })
 
@@ -434,7 +457,7 @@ app.get("/cod/:username/:token",function(req,res){
     }
     catch (e){
         console.log(e);
-        renderError(res,2);
+        randeazaEroare(res,2);
     }
 })
 

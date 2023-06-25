@@ -28,9 +28,33 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="/inregistrare">Register</a>
-            </li>
+            
+            <% if(locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori)) { %>
+                <li><div>Administrare</div>
+                    <ul>
+                        <li><a href="/useri">Useri</a></li>
+                        <li><a href="/grafice">Grafice</a></li>
+                        <li><a href="/comenzi">Comenzi</a></li>
+                    </ul>
+                </li>
+            <% } %>
+            <% if(locals.utilizator) { %>
+                <li><div><%- locals.utilizator.username %></div>
+                    <ul>
+                        <li><a href="/profil">Profil</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>
+                </li>
+            <% } %>
+            <% if(!locals.utilizator) { %>
+                <li>
+                    <a href="/inregistrare">Account</a>
+                    <ul>
+                        <li><a href="/inregistrare">Register</a></li>
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                </li>
+            <% } %>
             <li><a href="/produse">Products</a>
                 <ul>
                     <li><a href="/produse">Toate</a></li>

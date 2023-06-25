@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Cofetaria Dulcelind - înregistrare utilizatori.">
+        <meta name="keywords" content="cofetarie, Dulcelind, inregistrare, utilizatori">
+        <link rel="stylesheet" href="/resurse/styles/produse.css" type="text/css" />
+        <title>Cofetăria Dulcelind - înregistrare </title>
+        <%- include("../fragments/head") %>     
+        <script type="text/javascript" src=/resurse/js/inregistrare.js></script>
+    </head>
+    <body>
+    <%- include("../fragments/header") %>
+
+    <main>
+        <div class="afisaj">
+        <% if(!locals.utilizator) { %>
+            <form id="form_inreg"  method="post" class="date"  action="/login"  enctype="multipart/form-data">
+                <p>
+                    <label>
+                        Username: <input type="text" name="username" id="inp-username" value="" required">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Parola: <input id="parl" type="password" required  name="parola" value="">
+                    </label>
+                </p>
+                <p><input type="submit" value="Logare"></p>
+            </form>
+            <p><%- locals.mesajLogin %></p>
+            <% } else {%>
+               <%- locals.succesLogin %>
+            <% }  %>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <%- include("../fragments/footer") %>
+</footer>
+
+</body>
+</html>
