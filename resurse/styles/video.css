@@ -2,6 +2,7 @@ body {
     margin: 0;
     background: #000; 
     color: #e66a39;
+    
   }
 
 header{
@@ -20,6 +21,8 @@ header{
    background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
     background-size: cover;
     transition: 1s opacity;
+    background-color: black;
+    opacity: 0.5;
   }
   .stopfade { 
      opacity: .5;
