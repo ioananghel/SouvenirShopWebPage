@@ -73,9 +73,86 @@
                 </div>
                 <div id="event_calendar">
                     <h2>Event Calendar</h2>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat facilis enim ab, exercitationem suscipit, et, corrupti aliquid fugiat libero earum officiis! Nulla numquam eos reiciendis similique molestiae tempora nobis. Quo.
-                    </p>
+                    <p>Observatie: afiseaza doar luna curentă (evenimentele sunt random)</p>
+                <div id="calendar">
+                    <div>L</div>
+                    <div>Ma</div>
+                    <div>Mi</div>
+                    <div>J</div>
+                    <div>V</div>
+                    <div>S</div>
+                    <div>D</div>
+                <% 
+                nrZile=[31,28,31,30,31,30,31,31,30,31,30,31];
+                
+                d=new Date(); //observatie: este data serverului nu a clinetului; codul ejs fiind compilat pe server
+                anCurent=d.getFullYear();
+                lunaCurenta=d.getMonth();
+                if(anCurent%400==0 || (anCurent%4==0 && anCurent%100!=0)) nrZile=29;
+                let nrZileCalendar=nrZile[lunaCurenta]
+                primaZiLuna=new Date(anCurent, lunaCurenta, 1);
+                ultimaZiLuna=new Date(anCurent, lunaCurenta, nrZileCalendar);
+                ziSaptPrimaZiLuna=(primaZiLuna.getDay()-1+7)%7;
+                ziSaptUltimaZiLuna=(ultimaZiLuna.getDay()-1+7)%7;
+                for (let i=0;i<ziSaptPrimaZiLuna;i++){
+                 %>
+                 <div></div> 
+                 <% } 
+            
+                 
+                 for (let i=1;i<=nrZileCalendar;i++){
+                    var obiectEvenimente=null;
+                        if(locals.evenimente)
+                             obiectEvenimente=locals.evenimente.find(function(elem){ return elem.data.valueOf()==new Date(anCurent,lunaCurenta,i).valueOf()})
+                     if(obiectEvenimente)
+                     {
+                     %>
+                     <div class="zi eveniment" title="<%= obiectEvenimente.text %>"><%= i %></div> 
+                     <%
+                     }
+                     else{
+                    %>
+                    <div class="zi"><%= i %></div> 
+                    <% } 
+                } %>
+                </div>
+                <%
+                dataServer=new Date();
+                sirData=dataServer.getHours()+":"+dataServer.getMinutes()+":"+dataServer.getSeconds()
+            
+                %>
+                <p>Pe localhost vor fi identice; se va observa diferența pe Heroku</p>
+                <p>Ora server:<span id="data_server"><%= sirData %></span></p>
+                <p>Ora client:<span id="data_client"></span></p>
+                <script>
+                    function zero(nr){
+                        if (nr<10) return "0"+nr;
+                        return nr;
+                    }
+                    
+                    d=new Date()
+                    document.getElementById("data_client").innerHTML=zero(d.getHours())+":"+zero(d.getMinutes())+":"+zero(d.getSeconds());
+            
+                    function actualizeazaElemData(id_div){
+                        var data_div=document.getElementById(id_div);
+                        if (data_div.innerHTML!="")
+                        {
+                            var timp=data_div.innerHTML.split(":")
+                            var dt=new Date(2000,1,15, timp[0],timp[1], timp[2] );//nu conteaza data (am pus valori random pentru an, luna si zi) ci timpul
+                        }
+                        else
+                            var dt=new Date();
+                        dt.setSeconds(dt.getSeconds()+1)
+                        data_div.innerHTML=zero(dt.getHours())+":"+zero(dt.getMinutes())+":"+zero(dt.getSeconds());
+                    }
+                    function actualizeazaData(){
+                        actualizeazaElemData("data_client");
+                        actualizeazaElemData("data_server");
+                    }
+                    actualizeazaData()
+                    setInterval(actualizeazaData,1000)
+                </script>
+                <p>Locatie (acum e pentru un ip oarecare hardcodat in index.js - trebuie pus pe heroku ca sa mearga): <%= locals.locatie %></p>
                 </div>
                 <div id="announcements">
                     <h2>Announcements</h2>
