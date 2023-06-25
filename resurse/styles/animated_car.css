@@ -1,0 +1,68 @@
+#footer_animation{
+    display: flex;
+}
+
+.image-container {
+    width: 50vw;
+    height: 50vh;
+    /* background-image: "../imagini/sky.jpg"; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.car {
+    /* background-image: "../imagini/car-removebg-preview.png"; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 17rem;
+    height: 4.699rem;
+    position: absolute;
+    bottom: 77px;
+    left: 396px;
+}
+
+.wheel {
+    position: absolute;
+    animation: wheelanimation linear .6s infinite;
+}
+
+.wheel1 {
+    /* background-image: "../imagini/wheel1-removebg-preview.png"; */
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* width: 20px;
+    height: auto; */
+    bottom: 102px;
+    left: 720px;
+}
+.wheel2 {
+    /* background-image: "../imagini/wheel1-removebg-preview.png"; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* width: 20px;
+    height: auto; */
+    bottom: 102px;
+    left: 420px;
+}
+
+.roata{
+    width: 120px;
+    height: auto;
+    /* bottom: 80px;
+    left: 433px; */
+}
+
+@keyframes wheelanimation{
+    100% {
+        transform: rotate(-360deg);
+    }
+}
