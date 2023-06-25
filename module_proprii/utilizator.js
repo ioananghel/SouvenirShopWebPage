@@ -61,6 +61,30 @@ class Utilizator{
         return username!="" && username.match(new RegExp("^[A-Za-z0-9#_./]+$")) ;
     }
 
+    set setareEmail(email){
+        if (this.checkEmail(email)) this.email=email
+        else{
+            throw new Error("Email gresit")
+        }
+    }
+    checkEmail(email) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+    }
+
+    set setareImagineProfil(poza){
+        if (this.checkProfilePicture(poza)) this.poza=poza
+        else{
+            throw new Error("Formatul pozei este gresit")
+        }
+    }
+
+    checkProfilePicture(filename) {
+        const validExtensions = ["png", "jpg"];
+        const fileExtension = filename.split(".").pop().toLowerCase();
+        return validExtensions.includes(fileExtension);
+      }
+
     static criptareParola(parola){
         return crypto.scryptSync(parola,Utilizator.parolaCriptare,Utilizator.lungimeCod).toString("hex");
     }

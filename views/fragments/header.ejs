@@ -35,10 +35,11 @@
                         <li><a href="/useri">Useri</a></li>
                         <li><a href="/grafice">Grafice</a></li>
                         <li><a href="/comenzi">Comenzi</a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </li>
             <% } %>
-            <% if(locals.utilizator) { %>
+            <% if(!locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori) && locals.utilizator) { %>
                 <li><div><%- locals.utilizator.username %></div>
                     <ul>
                         <li><a href="/profil">Profil</a></li>

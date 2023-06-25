@@ -357,7 +357,7 @@ app.post("/cumpara",function(req, res){
                     utilizator: req.session.utilizator,
                     produse: rez.rows
                 });
-                console.log(rezFactura);
+                // console.log(rezFactura);
                 let numeFis=`./temp/factura${(new Date()).getTime()}.pdf`;
                 genereazaPdf(rezFactura, numeFis, function (numeFis){
                     mesajText=`Stimate ${req.session.utilizator.username} aveti mai jos rezFactura.`;
@@ -538,8 +538,8 @@ app.post("/profil", function(req, res){
         // },  
         AccesBD.getInstanta().updateParametrizat(
             {tabel:"utilizatori",
-            campuri:["nume","prenume","email","culoare_chat"],
-            valori:[`${campuriText.nume}`,`${campuriText.prenume}`,`${campuriText.email}`,`${campuriText.culoare_chat}`],
+            campuri:["nume","prenume","email","culoare_chat", "poza"],
+            valori:[`${campuriText.nume}`,`${campuriText.prenume}`,`${campuriText.email}`,`${campuriText.culoare_chat}`, `${campuriText.poza}`],
             conditiiAnd:[`username='${campuriText.username}'`, `parola='${parolaCriptata}'`]
         },          
         function(err, rez){

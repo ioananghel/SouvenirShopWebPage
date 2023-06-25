@@ -17,7 +17,7 @@
 
 		<table id="useri">
 		  <tr>
-			<th>id</th><th>Username</th><th>Nume</th><th>Prenume</th><th>Data</th><th>Rol</th>
+			<th>id</th><th>Username</th><th>Nume</th><th>Email</th><th>Data</th><th>Rol</th>
 		  </tr>
 
 		  <% for (var i = 0; i < useri.length; i++) { 
@@ -26,7 +26,7 @@
 				<tr>
 				  <td><%= useri[i].id %></td>
 				  <td><%= useri[i].username %></td>
-				  <td><%= useri[i].nume %></td>
+				  <td><%= useri[i].nume + " " + useri[i].prenume[0] %></td>
 				  <td><%= useri[i].email %></td>
 				  <%  
 					d=new Date(useri[i].data_adaugare)
