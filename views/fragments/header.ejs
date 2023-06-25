@@ -30,7 +30,7 @@
             </li>
             
             <% if(locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori)) { %>
-                <li><div>Administrare</div>
+                <li><a href="/administrare">Administrare</a>
                     <ul>
                         <li><a href="/useri">Useri</a></li>
                         <li><a href="/grafice">Grafice</a></li>
@@ -40,7 +40,7 @@
                 </li>
             <% } %>
             <% if(!locals?.utilizator?.areDreptul?.(Drepturi.vizualizareUtilizatori) && locals.utilizator) { %>
-                <li><div><%- locals.utilizator.username %></div>
+                <li><a href="/profil"><%- locals.utilizator.username %></a>
                     <ul>
                         <li><a href="/profil">Profil</a></li>
                         <li><a href="/cos-virtual">Cos virtual</a></li>
