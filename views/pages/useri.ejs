@@ -7,6 +7,8 @@
         <title>Cofetăria Dulcelind - utilizatori</title>
         <%- include("../fragments/head") %>     
         <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <script type="text/javascript" src="/resurse/js/admin_retrograd.js"></script>
+
     </head>
     <body>
     <%- include("../fragments/header") %>
@@ -17,23 +19,17 @@
 
 		<table id="useri">
 		  <tr>
-			<th>id</th><th>Username</th><th>Nume</th><th>Email</th><th>Data</th><th>Rol</th>
+			<th>Username</th><th>Nume</th><th>Rol</th><th>Promoveaza/Retrogradeaza</th>
 		  </tr>
 
 		  <% for (var i = 0; i < useri.length; i++) { 
 				if(useri[i].rol=="comun"){
 				%>
 				<tr>
-				  <td><%= useri[i].id %></td>
 				  <td><%= useri[i].username %></td>
 				  <td><%= useri[i].nume + " " + useri[i].prenume[0] %></td>
-				  <td><%= useri[i].email %></td>
-				  <%  
-					d=new Date(useri[i].data_adaugare)
-					sir_data=`${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
-				  %>
-				  <td><%=  sir_data %></td>
-				   <td><%=  useri[i].rol %></td>
+				  <td><%= useri[i].rol %></td>
+				  <td> <button class="promote" value="<%= useri[i].id %>">Promoveaza/Retrogradeaza</button> </td>
 				</tr> 
    
 				<% } %>			

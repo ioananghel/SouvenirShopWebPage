@@ -110,7 +110,7 @@ class Utilizator{
                 console.log(err);
             
             utiliz.trimiteMail("Te-ai inregistrat cu succes","Username-ul tau este "+utiliz.username,
-            `<h1>Salut!</h1><p style='color:blue'>Username-ul tau este ${utiliz.username}.</p> <p><a href='http://${Utilizator.numeDomeniu}/cod/${utiliz.username}/${token}'>Click aici pentru confirmare</a></p>`,
+            `<h1>Salut, stimate ${utiliz.username}!</h1><p style='color:blue'>Username-ul tau este ${utiliz.username}, pe site-ul: </p> <p><a href='http://${Utilizator.numeDomeniu}/cod/${utiliz.username}/${token}'>Click aici pentru confirmare</a></p>`,
             )
         });
     }
